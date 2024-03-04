@@ -12,3 +12,6 @@ export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agen
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # fzf git
 source ~/fzf-git.sh/fzf-git.sh
+
+# zsh_profile
+source ~/.zsh_profile
