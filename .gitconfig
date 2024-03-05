@@ -11,4 +11,6 @@
 [github]
     user = dumspy
 [core]
-	excludesfile = /Users/dispy/.gitignore_global
+	excludesfile = ~/.gitignore_global
+[push]
+	autoSetupRemote = true
