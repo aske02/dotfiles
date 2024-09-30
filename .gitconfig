@@ -12,5 +12,6 @@
     user = dumspy
 [core]
 	excludesfile = ~/.gitignore_global
+	hooksPath =  ~/git-hooks
 [push]
 	autoSetupRemote = true

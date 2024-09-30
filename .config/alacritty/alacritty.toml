@@ -1,5 +1,5 @@
 [env]
-TERM = "xterm-256color"
+COLORTERM = "truecolor"
 
 [window]
 option_as_alt = "Both"

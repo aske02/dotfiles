@@ -7,17 +7,29 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "theme": "Catppuccin Macchiato",
-  "base_keymap": "VSCode",
-  "vim_mode": true,
-  "ui_font_size": 16,
-  "buffer_font_size": 16,
-  "lsp": {
-    "solargraph": {
-      "initialization_options": {
-        "diagnostics": true,
-        "formatting": true
-      }
+    "assistant": {
+        "default_model": {
+            "provider": "copilot_chat",
+            "model": "gpt-4o"
+        },
+        "version": "2"
+    },
+    "features": {
+        "inline_completion_provider": "copilot"
+    },
+    "theme": "Catppuccin Macchiato",
+    "base_keymap": "VSCode",
+    "vim_mode": true,
+    "ui_font_size": 13,
+    "buffer_font_size": 13,
+    "relative_line_numbers": true,
+    "inlay_hints": {
+        "enabled": true
+    },
+    "tab_size": 4,
+    "languages": {
+        "Ruby": {
+            "language_servers": ["ruby-lsp", "!solargraph", "!rubocop", "..."]
+        }
     }
-  }
 }

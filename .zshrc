@@ -19,3 +19,9 @@ source ~/fzf-git.sh/fzf-git.sh
 
 # zsh_profile
 source ~/.zsh_profile
+
+# libpq
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+# Spring fix?
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
