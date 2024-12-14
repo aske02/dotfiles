@@ -12,6 +12,7 @@
     ".gitconfig".source = ../git/.gitconfig;
     ".gitignore_global".source = ../git/.gitignore_global;
     ".config/zed".source = ../zed;
+    ".config/starship".source = ../starship;
   };
 
   # This value determines the Home Manager release that your
