@@ -24,7 +24,9 @@
         pkgs.zed-editor
         pkgs.nixd
         pkgs.nil
+        pkgs.git
         pkgs.gh
+        pkgs.starship
       ];
 
       #homebrew
@@ -32,6 +34,7 @@
       homebrew.casks = [
         "1password"
         "discord"
+        "arc"
       ];
       homebrew.brews = [];
 
