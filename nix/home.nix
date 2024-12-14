@@ -9,6 +9,7 @@
   home.packages = [];
 
   home.file = {
+    ".zshrc".source = ../zsh/.zshrc;
     ".gitconfig".source = ../git/.gitconfig;
     ".gitignore_global".source = ../git/.gitignore_global;
     ".config/zed".source = ../zed;
