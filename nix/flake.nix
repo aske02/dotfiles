@@ -29,14 +29,21 @@
         pkgs.starship
       ];
 
-      #homebrew
-      homebrew.enable = true;
-      homebrew.casks = [
-        "1password"
-        "discord"
-        "arc"
+      # Fonts
+      fonts.packages = [
+        pkgs.nerd-fonts.jetbrains-mono
       ];
-      homebrew.brews = [];
+
+      #homebrew
+      homebrew = {
+        enable = true;
+        casks = [
+          "1password"
+          "discord"
+          "arc"
+        ];
+        brews = [];
+      };
 
       #Users
       users.users = {
