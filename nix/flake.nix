@@ -27,6 +27,7 @@
         pkgs.git
         pkgs.gh
         pkgs.starship
+        pkgs.raycast
       ];
 
       # Fonts
@@ -67,6 +68,27 @@
       # Used for backwards compatibility, please read the changelog before changing.
       # $ darwin-rebuild changelog
       system.stateVersion = 5;
+
+
+      system.defaults = {
+        dock.autohide = true;
+        dock.tilesize = 48;
+        dock.magnification = false;
+        dock.persistent-apps = [
+          "/System/Applications/Launchpad.app"
+          "/Applications/Arc.app"
+          "/Applications/Discord.app"
+          "/Applications/Ghostty.app"
+          "${pkgs.zed-editor}/Applications/Zed.app"
+          "/System/Applications/System Settings.app"
+        ];
+
+        finder.AppleShowAllExtensions = true;
+        finder.FXPreferredViewStyle = "clmv";
+
+        trackpad.TrackpadRightClick = true;
+      };
+
 
       # Enable sudo touch id authentication
       security.pam.enableSudoTouchIdAuth = true;
