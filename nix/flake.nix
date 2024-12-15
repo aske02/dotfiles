@@ -28,6 +28,7 @@
         pkgs.gh
         pkgs.starship
         pkgs.raycast
+        pkgs.tmux
       ];
 
       # Fonts
