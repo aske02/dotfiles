@@ -14,7 +14,7 @@
     ".gitignore_global".source = ../git/.gitignore_global;
     ".config/zed".source = ../zed;
     ".config/starship".source = ../starship;
-    ".config/tmux".source = ../tmux;
+    #".config/tmux".source = ../tmux;
   };
 
   # This value determines the Home Manager release that your
