@@ -29,6 +29,7 @@
         pkgs.starship
         pkgs.raycast
         pkgs.tmux
+        pkgs.fzf
       ];
 
       # Fonts
@@ -43,7 +44,6 @@
           "1password"
           "discord"
           "arc"
-          "fzf"
         ];
         brews = [];
       };
