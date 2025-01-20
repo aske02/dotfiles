@@ -30,6 +30,7 @@
         pkgs.raycast
         pkgs.tmux
         pkgs.fzf
+        pkgs.spotify
       ];
 
       # Fonts
@@ -45,7 +46,14 @@
           "discord"
           "arc"
         ];
-        brews = [];
+        onActivation = {
+          autoUpdate = true;
+          cleanup = "uninstall";
+          upgrade = true;
+        };
+        brews = [
+          "pyenv"
+        ];
       };
 
       #Users
