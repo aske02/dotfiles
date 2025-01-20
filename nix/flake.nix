@@ -43,6 +43,7 @@
           "1password"
           "discord"
           "arc"
+          "fzf"
         ];
         brews = [];
       };
