@@ -97,6 +97,10 @@
         finder.FXPreferredViewStyle = "clmv";
 
         trackpad.TrackpadRightClick = true;
+
+        controlcenter.BatteryShowPercentage = true;
+
+        NSGlobalDomain.AppleInterfaceStyleSwitchesAutomatically = true;
       };
 
 
