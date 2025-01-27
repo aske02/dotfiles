@@ -10,3 +10,6 @@ eval "$(pyenv init - zsh)"
 
 # fzf
 source <(fzf --zsh)
+
+# zsh_profile
+source ~/.zsh_profile

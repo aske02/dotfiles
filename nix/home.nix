@@ -10,12 +10,14 @@
 
   home.file = {
     ".zshrc".source = ../zsh/.zshrc;
+    ".zsh_profile".source = ../zsh/.zsh_profile;
     ".gitconfig".source = ../git/.gitconfig;
     ".gitignore_global".source = ../git/.gitignore_global;
     ".config/zed/settings.json".source = ../zed/settings.json;
     ".config/zed/tasks.json".source = ../zed/tasks.json;
     ".config/starship".source = ../starship;
-    #".config/tmux".source = ../tmux;
+    ".config/tmux/tmux.conf".source = ../tmux/tmux.conf;
+    "scripts/".source = ../scripts;
   };
 
   # This value determines the Home Manager release that your
