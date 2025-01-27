@@ -45,6 +45,7 @@
           "1password"
           "discord"
           "arc"
+          "docker"
         ];
         onActivation = {
           autoUpdate = true;
