@@ -17,6 +17,7 @@
     ".config/zed/tasks.json".source = ../zed/tasks.json;
     ".config/starship".source = ../starship;
     ".config/tmux/tmux.conf".source = ../tmux/tmux.conf;
+    ".config/ghostty".source = ../ghostty;
     "scripts/".source = ../scripts;
   };
 
