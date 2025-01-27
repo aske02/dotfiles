@@ -12,7 +12,8 @@
     ".zshrc".source = ../zsh/.zshrc;
     ".gitconfig".source = ../git/.gitconfig;
     ".gitignore_global".source = ../git/.gitignore_global;
-    ".config/zed".source = ../zed;
+    ".config/zed/settings.json".source = ../zed/settings.json;
+    ".config/zed/tasks.json".source = ../zed/tasks.json;
     ".config/starship".source = ../starship;
     #".config/tmux".source = ../tmux;
   };
