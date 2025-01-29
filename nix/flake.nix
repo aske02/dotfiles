@@ -46,6 +46,7 @@
           "discord"
           "arc"
           "docker"
+          "notion"
         ];
         onActivation = {
           autoUpdate = true;
