@@ -48,8 +48,8 @@
         {
           home-manager = {
             # include the home-manager module
-            users."felix.berger" = import ../hosts/home.nix //
-              import ../hosts/darwin/home.nix;
+            users."felix.berger" = import ./hosts/home.nix //
+              import ./hosts/darwin/home.nix;
           };
         }
       ];
