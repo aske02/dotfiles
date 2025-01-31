@@ -45,7 +45,7 @@
       modules = [
         ./hosts/system.nix
         ./hosts/darwin/darwin.nix
-        {
+        home-manager.darwinModules.home-manager {
           home-manager = {
             # include the home-manager module
             users."felix.berger" = [
