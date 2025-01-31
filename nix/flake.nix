@@ -48,10 +48,12 @@
         home-manager.darwinModules.home-manager {
           home-manager = {
             # include the home-manager module
-            users."felix.berger" = [
-              import ./hosts/home.nix
-              import ./hosts/darwin/home.nix
-            ];
+            users."felix.berger" = {
+              imports = [
+                ./hosts/home.nix
+                ./hosts/darwin/home.nix
+              ];
+            }
           };
         }
       ];
