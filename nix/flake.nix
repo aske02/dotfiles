@@ -20,24 +20,6 @@
 
   outputs = inputs@{ self, nix-darwin, nixos-wsl, nixpkgs, home-manager }:
   {
-    # homeConfigurations = {
-    #   "Felixs-MacBook-Air" = home-manager.lib.homeManagerConfiguration {
-    #     pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-    #     modules = [
-    #       ./hosts/home.nix
-    #       ./hosts/darwin/home.nix
-    #     ];
-    #   };
-
-    #   wsl = home-manager.lib.homeManagerConfiguration {
-    #     pkgs = nixpkgs.legacyPackages.x86_64-linux;
-    #     modules = [
-    #       ./hosts/home.nix
-    #       #./hosts/wsl/home.nix
-    #     ];
-    #   };
-    # };
-
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#personal
     darwinConfigurations."Felixs-MacBook-Air" = nix-darwin.lib.darwinSystem {
@@ -64,6 +46,13 @@
           ./hosts/system.nix
           ./hosts/wsl/wsl.nix
         ];
+        home-manager.darwinModules.home-manager {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.nixos = import ./hosts/wsl/home.nix;
+          };
+        }
       };
     };
 
