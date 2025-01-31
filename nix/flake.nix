@@ -20,29 +20,23 @@
 
   outputs = inputs@{ self, nix-darwin, nixos-wsl, nixpkgs, home-manager }:
   {
-    defaultPackage = {
-      "x86_64-darwin": home-manager.defaultPackage.x86_64-darwin;
-      "aarch64-darwin": home-manager.defaultPackage.aarch64-darwin;
-      "x86_64-linux": home-manager.defaultPackage.x86_64-linux;
-    };
+    # homeConfigurations = {
+    #   "Felixs-MacBook-Air" = home-manager.lib.homeManagerConfiguration {
+    #     pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+    #     modules = [
+    #       ./hosts/home.nix
+    #       ./hosts/darwin/home.nix
+    #     ];
+    #   };
 
-    homeConfigurations = {
-      "Felixs-MacBook-Air" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-        modules = [
-          ./hosts/home.nix
-          ./hosts/darwin/home.nix
-        ];
-      };
-
-      wsl = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [
-          ./hosts/home.nix
-          #./hosts/wsl/home.nix
-        ];
-      };
-    };
+    #   wsl = home-manager.lib.homeManagerConfiguration {
+    #     pkgs = nixpkgs.legacyPackages.x86_64-linux;
+    #     modules = [
+    #       ./hosts/home.nix
+    #       #./hosts/wsl/home.nix
+    #     ];
+    #   };
+    # };
 
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#personal
@@ -51,6 +45,13 @@
       modules = [
         ./hosts/system.nix
         ./hosts/darwin/darwin.nix
+        {
+          home-manager = {
+            # include the home-manager module
+            users."felix.berger" = import ../hosts/home.nix //
+              import ../hosts/darwin/home.nix;
+          };
+        }
       ];
     };
 

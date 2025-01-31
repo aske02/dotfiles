@@ -1,2 +1,1 @@
-    darwin-rebuild switch --flake ./nix/
-    home-manager switch --flake ./nix/
+darwin-rebuild switch --flake ./nix/
