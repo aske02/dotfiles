@@ -18,7 +18,7 @@
     };
   };
 
-  outputs = inputs@{ self, nix-darwin. nixos-wsl, nixpkgs, home-manager }:
+  outputs = inputs@{ self, nix-darwin, nixos-wsl, nixpkgs, home-manager }:
   {
     homeConfigurations = {
       "Felixs-MacBook-Air" = home-manager.lib.homeManagerConfiguration {
