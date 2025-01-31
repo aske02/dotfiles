@@ -33,7 +33,7 @@
       nix.useDaemon = true;
 
       # Set Git commit hash for darwin-version.
-      system.configurationRevision = self.rev or self.dirtyRev or null;
+      #system.configurationRevision = self.rev or self.dirtyRev or null;
 
       # Used for backwards compatibility, please read the changelog before changing.
       # $ darwin-rebuild changelog
@@ -48,7 +48,7 @@
           "/Applications/Arc.app"
           "/Applications/Discord.app"
           "/Applications/Ghostty.app"
-          "${pkgs.zed-editor}/Applications/Zed.app"
+          "/Applications/Zed.app"
           "/System/Applications/System Settings.app"
         ];
 
