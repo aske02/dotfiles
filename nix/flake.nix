@@ -43,6 +43,7 @@
       wsl = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          nixos-wsl.nixosModules.default
           ./hosts/system.nix
           ./hosts/wsl/wsl.nix
           home-manager.nixosModules.home-manager {
