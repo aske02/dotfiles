@@ -1,4 +1,6 @@
 { config, pkgs, lib, ... }: {
+    system.stateVersion = "24.05";
+
     wsl.enable = true;
     wsl.defaultUser = "nixos";
     wsl.wslConf.network.generateResolvConf = false;
