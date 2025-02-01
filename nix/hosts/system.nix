@@ -12,6 +12,7 @@
     # List packages installed in system profile. To search by name, run:
     # $ nix-env -qaP | grep wget
     environment.systemPackages = [
+        pkgs.zsh
 	    pkgs.wget
         pkgs.home-manager
         pkgs.nixd
@@ -27,4 +28,6 @@
     fonts.packages = [
         pkgs.nerd-fonts.jetbrains-mono
     ];
+
+    users.defaultUserShell = pkgs.zsh;
 }

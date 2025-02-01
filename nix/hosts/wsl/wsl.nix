@@ -15,4 +15,8 @@
         domains = [ "~." ];
         dnsovertls = "false";
     };
+
+    environment.systemPackages = [
+        pkgs.socat
+    ];
 }

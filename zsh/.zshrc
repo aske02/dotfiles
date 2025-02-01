@@ -14,6 +14,6 @@ source <(fzf --zsh)
 # zsh_profile
 source ~/.zsh_profile
 
-if [[ "$(hostname)" == "nixos" ]]; then
+if [[ "$(uname -n)" == "nixos" ]]; then
   source ~/.ssh_pipe
 fi
