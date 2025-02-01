@@ -45,14 +45,14 @@
         modules = [
           ./hosts/system.nix
           ./hosts/wsl/wsl.nix
+          home-manager.nixosModules.home-manager {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.nixos = import ./hosts/wsl/home.nix;
+            };
+          }
         ];
-        home-manager.darwinModules.home-manager {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.nixos = import ./hosts/wsl/home.nix;
-          };
-        }
       };
     };
 
