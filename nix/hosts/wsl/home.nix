@@ -32,7 +32,7 @@
       push.autoSetupRemote = true;
       gpg.format = "ssh";
       gpg.ssh.program = "/mnt/c/Users/felix/AppData/Local/1Password/app/8/op-ssh-sign-wsl";
-      commit.sign = true;
+      commit.gpgSign = true;
     };
   };
 }
