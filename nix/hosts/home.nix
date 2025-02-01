@@ -14,7 +14,6 @@
   home.file = {
     ".zshrc".source = ../../zsh/.zshrc;
     ".zsh_profile".source = ../../zsh/.zsh_profile;
-    ".gitconfig".source = ../../git/.gitconfig;
     ".gitignore_global".source = ../../git/.gitignore_global;
     ".config/starship".source = ../../starship;
     ".config/tmux/tmux.conf".source = ../../tmux/tmux.conf;
