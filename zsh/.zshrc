@@ -13,3 +13,7 @@ source <(fzf --zsh)
 
 # zsh_profile
 source ~/.zsh_profile
+
+if [[ "$(hostname)" == "nixos" ]]; then
+  source ~/.ssh_pipe
+fi
