@@ -18,5 +18,6 @@
 
     environment.systemPackages = [
         pkgs.socat
+        pkgs.pyenv
     ];
 }
