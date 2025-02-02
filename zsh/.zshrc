@@ -17,3 +17,5 @@ source ~/.zsh_profile
 if [[ "$(uname -n)" == "nixos" ]]; then
   source ~/.ssh_pipe
 fi
+
+alias ns='nix-shell --command $SHELL'
