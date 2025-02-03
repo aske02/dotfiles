@@ -1,73 +1,74 @@
 { config, pkgs, ... }: {
-    services.nix-daemon.enable = true;
-    
-      #homebrew
-      homebrew = {
-        enable = true;
-        casks = [
-          "1password"
-          "discord"
-          "arc"
-          "docker"
-          "notion"
-          "spotify"
-          "raycast"
-          "zed"
-        ];
-        onActivation = {
-          autoUpdate = true;
-          cleanup = "uninstall";
-          upgrade = true;
-        };
-        brews = [
-          "pyenv"
-        ];
-      };
+  services.nix-daemon.enable = true;
 
-      #Users
-      users.users = {
-        "felix.berger" = {
-          name = "felix.berger";
-          home = "/Users/felix.berger";
-        };
-      };
-      nix.configureBuildUsers = true;
-      nix.useDaemon = true;
+  #homebrew
+  homebrew = {
+    enable = true;
+    casks = [
+      "1password"
+      "discord"
+      "arc"
+      "docker"
+      "notion"
+      "spotify"
+      "raycast"
+      "zed"
+      "visual-studio-code"
+    ];
+    onActivation = {
+      autoUpdate = true;
+      cleanup = "uninstall";
+      upgrade = true;
+    };
+    brews = [
+      "pyenv"
+    ];
+  };
 
-      # Set Git commit hash for darwin-version.
-      #system.configurationRevision = self.rev or self.dirtyRev or null;
+  #Users
+  users.users = {
+    "felix.berger" = {
+      name = "felix.berger";
+      home = "/Users/felix.berger";
+    };
+  };
+  nix.configureBuildUsers = true;
+  nix.useDaemon = true;
 
-      # Used for backwards compatibility, please read the changelog before changing.
-      # $ darwin-rebuild changelog
-      system.stateVersion = 5;
+  # Set Git commit hash for darwin-version.
+  #system.configurationRevision = self.rev or self.dirtyRev or null;
 
-      system.defaults = {
-        dock.autohide = true;
-        dock.tilesize = 48;
-        dock.magnification = false;
-        dock.persistent-apps = [
-          "/System/Applications/Launchpad.app"
-          "/Applications/Arc.app"
-          "/Applications/Discord.app"
-          "/Applications/Ghostty.app"
-          "/Applications/Zed.app"
-          "/System/Applications/System Settings.app"
-        ];
+  # Used for backwards compatibility, please read the changelog before changing.
+  # $ darwin-rebuild changelog
+  system.stateVersion = 5;
 
-        finder.AppleShowAllExtensions = true;
-        finder.FXPreferredViewStyle = "clmv";
+  system.defaults = {
+    dock.autohide = true;
+    dock.tilesize = 48;
+    dock.magnification = false;
+    dock.persistent-apps = [
+      "/System/Applications/Launchpad.app"
+      "/Applications/Arc.app"
+      "/Applications/Discord.app"
+      "/Applications/Ghostty.app"
+      "/Applications/Zed.app"
+      "/System/Applications/System Settings.app"
+    ];
 
-        trackpad.TrackpadRightClick = true;
+    finder.AppleShowAllExtensions = true;
+    finder.FXPreferredViewStyle = "clmv";
 
-        controlcenter.BatteryShowPercentage = true;
+    trackpad.TrackpadRightClick = true;
 
-        NSGlobalDomain.AppleInterfaceStyleSwitchesAutomatically = true;
-      };
+    controlcenter.BatteryShowPercentage = true;
+
+    NSGlobalDomain.AppleInterfaceStyleSwitchesAutomatically = true;
+  };
 
 
-      # Enable sudo touch id authentication
-      security.pam.enableSudoTouchIdAuth = true;
+  # Enable sudo touch id authentication
+  security.pam.enableSudoTouchIdAuth = true;
 
-      # The platform the configuration will be used on.
-      nixpkgs.hostPlatform = "aarch64-darwin";
+  # The platform the configuration will be used on.
+  nixpkgs.hostPlatform = "aarch64-darwin";
 }
