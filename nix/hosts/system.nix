@@ -1,8 +1,6 @@
 { config, pkgs, ... }: {
   nixpkgs.config.allowUnfree = true;
 
-	programs.nix-ld.enable = true;
-
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
@@ -28,6 +26,4 @@
   fonts.packages = [
     pkgs.nerd-fonts.jetbrains-mono
   ];
-
-  users.defaultUserShell = pkgs.zsh;
 }

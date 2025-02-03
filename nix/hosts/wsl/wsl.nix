@@ -1,6 +1,9 @@
 { config, pkgs, lib, ... }: {
   system.stateVersion = "24.05";
 
+  programs.nix-ld.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+
   wsl.enable = true;
   wsl.defaultUser = "nixos";
   wsl.wslConf.network.generateResolvConf = false;

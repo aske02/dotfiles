@@ -4,7 +4,7 @@
   imports = [
     ../home.nix
   ];
-  
+
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "felix.berger";
@@ -14,7 +14,7 @@
     ".config/zed/settings.json".source = ../../../zed/settings.json;
     ".config/zed/tasks.json".source = ../../../zed/tasks.json;
     ".config/ghostty".source = ../../../ghostty;
-    ".gitconfig".source = ../../git/.gitconfig;
+    ".gitconfig".source = ../../../git/.gitconfig;
   };
 
   programs.ssh = {
