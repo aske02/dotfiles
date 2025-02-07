@@ -14,12 +14,5 @@
     pkgs.wget
     pkgs.home-manager
     pkgs.git
-    pkgs.starship
-    pkgs.fzf
-  ];
-
-  # Fonts
-  fonts.packages = [
-    pkgs.nerd-fonts.jetbrains-mono
   ];
 }

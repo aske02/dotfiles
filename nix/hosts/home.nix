@@ -10,12 +10,6 @@
   # the Home Manager release notes for a list of state version
   # changes in each release.
   home.stateVersion = "24.11";
-  
-  home.file = {
-    ".zshrc".source = ../../zsh/.zshrc;
-    ".zsh_profile".source = ../../zsh/.zsh_profile;
-    ".config/starship".source = ../../starship;
-  };
 
   programs.home-manager.enable = true;
 
@@ -23,5 +17,25 @@
     enable = true;
     nix-direnv.enable = true;
     enableZshIntegration = true;
+  };
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+	autosuggestion.enable = true;
+	autosuggestion.highlight = null;
+    syntaxHighlighting.enable = false;
+  
+    shellAliases = {
+      update = "$HOME/dotfiles/rebuild.sh";
+	  ns = "nix-shell --command $SHELL";
+    };
+    history.size = 10000;
+	
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" ];
+      theme = "robbyrussell";
+    };
   };
 }

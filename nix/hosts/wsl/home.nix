@@ -33,4 +33,10 @@
       commit.gpgSign = true;
     };
   };
+
+  programs.zsh = {
+	initExtra = ''
+		source ~/.ssh_pipe
+	'';
+  };
 }
