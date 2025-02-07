@@ -13,12 +13,8 @@
     pkgs.zsh
     pkgs.wget
     pkgs.home-manager
-    pkgs.nixd
-    pkgs.nil
     pkgs.git
-    pkgs.gh
     pkgs.starship
-    pkgs.tmux
     pkgs.fzf
   ];
 

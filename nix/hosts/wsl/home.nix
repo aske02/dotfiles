@@ -17,21 +17,19 @@
   programs.git = {
     enable = true;
     
-    userName = "Felix Berger";
-    userEmail = "felix.enok.berger@gmail.com";
+    userName = "Aske";
+    userEmail = "aske020304@gmail.com";
 
     signing = {
-      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDHEA0GhkjkbuZGBnjtXSoQ9zpeXPCTTRYvfJX6RniI6";
+      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBuGWVW12wKcCYaHAZABfS3opkJlf/JC9Yo3xMRq6wyp";
     };
 
     extraConfig = {
-      github.user = "dumspy";
-      core.excludesfile = "~/.gitignore_global";
-      core.hooksPath = "~/git-hooks";
+      github.user = "aske02";
       core.sshCommand = "ssh.exe";
       push.autoSetupRemote = true;
       gpg.format = "ssh";
-      gpg.ssh.program = "/mnt/c/Users/felix/AppData/Local/1Password/app/8/op-ssh-sign-wsl";
+      gpg.ssh.program = "/mnt/c/Users/aske0/AppData/Local/1Password/app/8/op-ssh-sign-wsl";
       commit.gpgSign = true;
     };
   };
