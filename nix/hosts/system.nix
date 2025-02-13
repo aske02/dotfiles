@@ -9,10 +9,11 @@
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  environment.systemPackages = [
-    pkgs.zsh
-    pkgs.wget
-    pkgs.home-manager
-    pkgs.git
+  environment.systemPackages = with pkgs; [
+    zsh
+    wget
+    home-manager
+    git
+    _1password-cli
   ];
 }
