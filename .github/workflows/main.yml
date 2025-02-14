@@ -1,4 +1,4 @@
-name: Test and Lint Nix Config
+name: Flake check & alejandra lint
 
 on:
   push:
