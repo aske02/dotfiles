@@ -14,6 +14,12 @@
     wget
     home-manager
     git
+    fzf
     _1password-cli
   ];
+
+  sops.defaultSopsFile = ../../secrets/secrets.enc.yaml;
+  sops.defaultSopsFormat = "yaml";
+
+  sops.age.keyFile = "home/nixos/.config/sops/keys.txt";
 }
