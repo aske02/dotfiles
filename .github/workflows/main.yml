@@ -9,6 +9,9 @@ jobs:
     if: github.repository == 'aske02/dotfiles'
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Setup Nix
         uses: ./.github/actions/nix-setup
 
@@ -19,6 +22,9 @@ jobs:
     if: github.repository == 'aske02/dotfiles'
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Setup Nix
         uses: ./.github/actions/nix-setup
 
