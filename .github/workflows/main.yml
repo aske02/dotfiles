@@ -1,0 +1,26 @@
+name: Test and Lint Nix Config
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    if: github.repository == 'aske02/dotfiles'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Nix
+        uses: ./.github/actions/nix-setup
+
+      - name: Verify flake configuration
+        run: nix flake check
+
+  lint:
+    if: github.repository == 'aske02/dotfiles'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Nix
+        uses: ./.github/actions/nix-setup
+
+      - name: Lint Nix code with Alejandra
+        run: alejandra --check .
