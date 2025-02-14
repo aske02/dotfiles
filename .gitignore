@@ -1,1 +1,4 @@
 .DS_Store
+
+#Temp solution
+secrets/secrets.enc.yaml
