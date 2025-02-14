@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
@@ -22,19 +24,19 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-	autosuggestion.enable = true;
-	autosuggestion.highlight = null;
+    autosuggestion.enable = true;
+    autosuggestion.highlight = null;
     syntaxHighlighting.enable = false;
-  
+
     shellAliases = {
       update = "$HOME/dotfiles/rebuild.sh";
-	  ns = "nix-shell --command $SHELL";
+      ns = "nix-shell --command $SHELL";
     };
     history.size = 10000;
-	
+
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" ];
+      plugins = ["git"];
       theme = "robbyrussell";
     };
   };
