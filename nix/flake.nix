@@ -15,8 +15,12 @@
     };
   };
 
-  outputs = inputs@{ self, nixos-wsl, nixpkgs, home-manager }:
-  {
+  outputs = inputs @ {
+    self,
+    nixos-wsl,
+    nixpkgs,
+    home-manager,
+  }: {
     # Build nixosConfigurations using:
     #
     nixosConfigurations = {
@@ -26,7 +30,8 @@
           nixos-wsl.nixosModules.default
           ./hosts/system.nix
           ./hosts/wsl/wsl.nix
-          home-manager.nixosModules.home-manager {
+          home-manager.nixosModules.home-manager
+          {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
@@ -36,6 +41,5 @@
         ];
       };
     };
-
   };
 }
