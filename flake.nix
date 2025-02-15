@@ -1,24 +1,54 @@
 {
+  description = "Example nix-darwin system flake";
+
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = {
+
+  outputs = inputs @ {
     self,
+    nixos-wsl,
     nixpkgs,
-    flake-utils,
-  }:
-    flake-utils.lib.eachDefaultSystem (
-      system: let
-        pkgs = import nixpkgs {inherit system;};
-      in {
-        formatter = pkgs.alejandra;
-        devShells.default = pkgs.mkShell rec {
-          packages = with pkgs; [
-            alejandra
-            sops
-          ];
-        };
-      }
-    );
+    home-manager,
+  }: {
+    # Build nixosConfigurations using:
+    nixosConfigurations = {
+      wsl = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          nixos-wsl.nixosModules.default
+          ./hosts/system.nix
+          ./hosts/wsl/wsl.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.nixos = import ./hosts/wsl/home.nix;
+            };
+          }
+        ];
+      };
+    };
+
+    devShells.x86_64-linux.default = let
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+    in
+      pkgs.mkShell {
+        name = "dotfiles-dev-shell";
+        packages = with pkgs; [
+          alejandra
+        ];
+      };
+  };
 }

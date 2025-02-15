@@ -3,19 +3,6 @@
   pkgs,
   ...
 }: {
-  imports = [
-    ../home.nix
-  ];
-
-  home.file = {
-    ".ssh_pipe".source = ../../../zsh/.ssh_pipe;
-  };
-
-  # Home Manager needs a bit of information about you and the
-  # paths it should manage.
-  home.username = "nixos";
-  home.homeDirectory = "/home/nixos";
-
   programs.git = {
     enable = true;
 
@@ -31,14 +18,7 @@
       core.sshCommand = "ssh.exe";
       push.autoSetupRemote = true;
       gpg.format = "ssh";
-      gpg.ssh.program = "/mnt/c/Users/aske0/AppData/Local/1Password/app/8/op-ssh-sign-wsl";
       commit.gpgSign = true;
     };
-  };
-
-  programs.zsh = {
-    initExtra = ''
-      source ~/.ssh_pipe
-    '';
   };
 }
