@@ -37,6 +37,9 @@
               users.nixos = import ./hosts/wsl/home.nix;
             };
           }
+          ({pkgs, ...}: {
+            environment.variables.NIXOS_CONFIG_NAME = "wsl";
+          })
         ];
       };
     };
