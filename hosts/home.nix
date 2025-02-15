@@ -28,10 +28,6 @@
     autosuggestion.highlight = null;
     syntaxHighlighting.enable = false;
 
-    shellAliases = {
-      update = "$HOME/dotfiles/rebuild.sh";
-      ns = "nix-shell --command $SHELL";
-    };
     history.size = 10000;
 
     oh-my-zsh = {

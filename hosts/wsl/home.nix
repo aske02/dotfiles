@@ -8,7 +8,7 @@
   ];
 
   home.file = {
-    ".ssh_pipe".source = ../../../zsh/.ssh_pipe;
+    ".ssh_pipe".source = ../../zsh/.ssh_pipe;
   };
 
   # Home Manager needs a bit of information about you and the
