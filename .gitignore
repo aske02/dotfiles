@@ -2,5 +2,4 @@
 
 .direnv/
 
-#Temp solution
 secrets/secrets.enc.yaml
