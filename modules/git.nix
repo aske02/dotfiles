@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  me,
   ...
 }: {
   programs.git = {
@@ -15,7 +14,7 @@
     };
 
     extraConfig = {
-      github.user = me.pass;
+      github.user = "aske02";
       core.sshCommand = "ssh.exe";
       push.autoSetupRemote = true;
       gpg.format = "ssh";
