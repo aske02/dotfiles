@@ -1,4 +1,6 @@
 .DS_Store
 
+.direnv/
+
 #Temp solution
 secrets/secrets.enc.yaml

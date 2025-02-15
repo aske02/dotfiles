@@ -16,10 +16,14 @@
     };
   };
 
-  outputs = inputs@{ self, nixos-wsl, nixpkgs, home-manager, sops-nix }:
-  {
+  outputs = inputs @ {
+    self,
+    nixos-wsl,
+    nixpkgs,
+    home-manager,
+    sops-nix,
+  }: {
     # Build nixosConfigurations using:
-    #
     nixosConfigurations = {
       wsl = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -28,7 +32,8 @@
           sops-nix.nixosModules.sops
           ./hosts/system.nix
           ./hosts/wsl/wsl.nix
-          home-manager.nixosModules.home-manager {
+          home-manager.nixosModules.home-manager
+          {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
@@ -39,5 +44,14 @@
       };
     };
 
+    devShells.x86_64-linux.default = let
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+    in
+      pkgs.mkShell {
+        name = "dotfiles-dev-shell";
+        packages = with pkgs; [
+          alejandra
+        ];
+      };
   };
 }
