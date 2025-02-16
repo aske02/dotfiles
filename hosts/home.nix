@@ -16,6 +16,7 @@
   imports = [
     ../modules/zsh/zsh.nix
     ../modules/fzf.nix
+    ../modules/starship.nix
   ];
 
   programs.home-manager.enable = true;

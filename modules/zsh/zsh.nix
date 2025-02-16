@@ -15,7 +15,7 @@
     oh-my-zsh = {
       enable = true;
       plugins = ["git" "direnv" "fzf"];
-      theme = "robbyrussell";
+      theme = "";
     };
   };
 }

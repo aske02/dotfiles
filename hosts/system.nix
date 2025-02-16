@@ -20,9 +20,10 @@
     git
     fzf
     _1password-cli
+    starship
   ];
 
-  sops.defaultSopsFile = ../../secrets/secrets.enc.yaml;
+  sops.defaultSopsFile = ../secrets/secrets.enc.yaml;
   sops.defaultSopsFormat = "yaml";
 
   sops.age.keyFile = "home/nixos/.config/sops/keys.txt";

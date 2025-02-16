@@ -22,4 +22,4 @@ git add secrets/secrets.enc.yaml -f
 
 sudo nixos-rebuild switch --flake ".#${CONFIG_NAME}"
 
-git remove secrets/secrets.enc.yaml
+git restore --staged secrets/secrets.enc.yaml
