@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    sops-nix.url = "github:Mic92/sops-nix";
 
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/main";
@@ -20,6 +21,7 @@
     nixos-wsl,
     nixpkgs,
     home-manager,
+    sops-nix,
   }: {
     # Build nixosConfigurations using:
     nixosConfigurations = {
@@ -27,6 +29,7 @@
         system = "x86_64-linux";
         modules = [
           nixos-wsl.nixosModules.default
+          sops-nix.nixosModules.sops
           ./hosts/system.nix
           ./hosts/wsl/wsl.nix
           home-manager.nixosModules.home-manager
@@ -52,6 +55,10 @@
         packages = with pkgs; [
           alejandra
         ];
+        shellHook = ''
+          cp -r .githooks/* .git/hooks
+          chmod +x .git/hooks/*
+        '';
       };
   };
 }

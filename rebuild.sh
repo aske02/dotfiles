@@ -18,4 +18,8 @@ docker-host" | fzf --prompt="Select configuration: " --height 5
   fi
 fi
 
+git add secrets/secrets.enc.yaml -f
+
 sudo nixos-rebuild switch --flake ".#${CONFIG_NAME}"
+
+git remove secrets/secrets.enc.yaml

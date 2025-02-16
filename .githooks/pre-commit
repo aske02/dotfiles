@@ -1,0 +1,5 @@
+if git diff --cached --name-only | grep -q 'secrets.enc.yaml'; then
+	echo "Error: secrets.enc.yaml is staged for commit."
+	echo "This file should not be committed to the repository."
+	exit 1
+fi
