@@ -45,6 +45,27 @@
           })
         ];
       };
+
+      wsl-school = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          nixos-wsl.nixosModules.default
+          sops-nix.nixosModules.sops
+          ./hosts/system.nix
+          ./hosts/wsl-school/wsl-school.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.nixos = import ./hosts/wsl-school/home.nix;
+            };
+          }
+          ({pkgs, ...}: {
+            environment.variables.NIXOS_CONFIG_NAME = "wsl-school";
+          })
+        ];
+      };
     };
 
     devShells.x86_64-linux.default = let
@@ -54,6 +75,7 @@
         name = "dotfiles-dev-shell";
         packages = with pkgs; [
           alejandra
+          sops
         ];
         shellHook = ''
           cp -r .githooks/* .git/hooks

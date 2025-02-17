@@ -7,9 +7,9 @@ elif [ -n "$NIXOS_CONFIG_NAME" ]; then
   CONFIG_NAME="$NIXOS_CONFIG_NAME"
   echo "Using configuration from NIXOS_CONFIG_NAME: $CONFIG_NAME"
 else
+  OPTIONS=("wsl" "wsl-school")
   CONFIG_NAME=$(
-    echo "wsl
-docker-host" | fzf --prompt="Select configuration: " --height 5
+    printf "%s\n" "${OPTIONS[@]}" | fzf --prompt="Select configuration: " --height 5
   )
 
   if [ -z "$CONFIG_NAME" ]; then
