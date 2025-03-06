@@ -12,7 +12,4 @@
   # paths it should manage.
   home.username = "nixos";
   home.homeDirectory = "/home/nixos";
-
-  programs.git.extraConfig.core.sshCommand = "ssh.exe";
-  programs.git.extraConfig.gpg.ssh.program = "/mnt/c/Users/66594/AppData/Local/1Password/app/8/op-ssh-sign-wsl";
 }
