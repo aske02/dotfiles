@@ -4,6 +4,10 @@
   lib,
   ...
 }: {
+  imports = [
+    ../../modules/1password-agent.nix
+  ];
+
   system.stateVersion = "24.05";
 
   programs.nix-ld.enable = true;
@@ -24,9 +28,13 @@
     dnsovertls = "false";
   };
 
-  environment.systemPackages = [
-    pkgs.socat
-    pkgs.gcc
-    pkgs.gnumake
+  services."1password-agent" = {
+    npiperelayPath = "/mnt/c/bin/npiperelay.exe";
+  };
+
+  environment.systemPackages = with pkgs; [
+    socat
+    gcc
+    gnumake
   ];
 }

@@ -14,7 +14,7 @@
   home.stateVersion = "24.11";
 
   imports = [
-    ../modules/zsh/zsh.nix
+    ../modules/zsh.nix
     ../modules/fzf.nix
     ../modules/starship.nix
   ];
