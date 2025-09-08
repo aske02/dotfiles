@@ -1,0 +1,3 @@
+{...}: {
+  imports = [../wsl/system.nix];
+}

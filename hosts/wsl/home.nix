@@ -1,15 +1,20 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{config, ...}: {
   imports = [
-    ../home.nix
-    ../../modules/git.nix
+    ../config.nix
+
+    ../../home/programs/git.nix
+    ../../home/programs/shell
+    ../../home/programs/tailscale.nix
+
+    ../../home/scripts/nixx.nix
   ];
 
-  # Home Manager needs a bit of information about you and the
-  # paths it should manage.
-  home.username = "nixos";
-  home.homeDirectory = "/home/nixos";
+  home = {
+    inherit (config.var) username;
+    homeDirectory = "/home/${config.var.username}";
+
+    stateVersion = "24.11";
+  };
+
+  programs.home-manager.enable = true;
 }

@@ -1,20 +1,19 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{config, ...}: let
+  sshKey = config.var.main_sshKey;
+  gh_username = config.var.github.username;
+in {
   programs.git = {
     enable = true;
 
-    userName = "Aske";
+    userName = "aske";
     userEmail = "aske020304@gmail.com";
 
     signing = {
-      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBuGWVW12wKcCYaHAZABfS3opkJlf/JC9Yo3xMRq6wyp main-key";
+      key = sshKey;
     };
 
     extraConfig = {
-      github.user = "aske02";
+      github.user = gh_username;
       push.autoSetupRemote = true;
       gpg.format = "ssh";
       commit.gpgSign = true;
