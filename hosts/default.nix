@@ -28,7 +28,7 @@
       // {
         target = wsl.target;
         config = "wsl-school";
-        hostname = wsl.hostname;
+        hostname = "wsl-school";
         extraModules = wsl.extraModules;
       };
 
