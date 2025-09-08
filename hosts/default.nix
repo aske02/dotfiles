@@ -31,5 +31,17 @@
         hostname = wsl.hostname;
         extraModules = wsl.extraModules;
       };
+
+    school =
+      base
+      // {
+        target = "x86_64-linux";
+        config = "school";
+        hostname = "school";
+        extraModules = [
+          home-manager.nixosModules.home-manager
+          sops-nix.nixosModules.sops
+        ];
+      };
   };
 }
