@@ -1,4 +1,9 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  host,
+  ...
+}: {
   imports = [
     ../config.nix
 
@@ -7,7 +12,7 @@
     ../../system/user.nix
     ../../system/home-manager.nix
     ../../system/docker.nix
-    ../../system/util.nix
+    (import ../../system/util.nix {inherit config pkgs host;})
 
     ../../system/sops.nix
 
