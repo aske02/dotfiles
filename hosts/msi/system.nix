@@ -1,4 +1,9 @@
-{config, ...}: {
+{
+  config,
+  host,
+  pkgs,
+  ...
+}: {
   imports = [
     ../config.nix
 
@@ -12,7 +17,7 @@
     ../../system/util.nix
     ../../system/audio.nix
 
-    ../../system/vm/gnome.nix
+    ../../system/vm/hyprland
 
     ../../system/sops.nix
 
@@ -22,7 +27,7 @@
     ../../system/programs/1password.nix
   ];
 
-  home-manager.users."${config.var.username}" = import ./home.nix;
+  home-manager.users."${config.var.username}" = import ./home.nix {inherit config host pkgs;};
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.05";
 }

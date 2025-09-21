@@ -7,6 +7,7 @@
   base = {
     timezone = "Europe/Copenhagen";
     locale = "en_DK.UTF-8";
+    kb_layout = "dk";
   };
 
   systems = rec {
@@ -38,6 +39,18 @@
         target = "x86_64-linux";
         config = "school";
         hostname = "school";
+        extraModules = [
+          home-manager.nixosModules.home-manager
+          sops-nix.nixosModules.sops
+        ];
+      };
+
+    msi =
+      base
+      // {
+        target = "x86_64-linux";
+        config = "msi";
+        hostname = "msi";
         extraModules = [
           home-manager.nixosModules.home-manager
           sops-nix.nixosModules.sops

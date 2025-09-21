@@ -18,6 +18,10 @@
     };
 
     npiperelayPath = "/mnt/c/bin/npiperelay.exe";
+
+    terminal = "ghostty";
+    browser = "librewolf";
+    editor = "code";
   };
 
   options = {

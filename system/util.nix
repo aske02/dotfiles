@@ -14,6 +14,7 @@ in {
 
   time = {timeZone = timeZone;};
   i18n.defaultLocale = defaultLocale;
+  console.keyMap = "dk-latin1";
 
   programs.nix-ld.enable = true;
 

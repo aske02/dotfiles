@@ -8,6 +8,4 @@
     layout = "dk";
     variant = "";
   };
-
-  console.keyMap = "dk-latin1";
 }
