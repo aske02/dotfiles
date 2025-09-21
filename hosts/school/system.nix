@@ -12,7 +12,7 @@
     ../../system/util.nix
     ../../system/audio.nix
 
-    ../../system/vm/gnome.nix
+    ../../system/vm/gnome
 
     ../../system/sops.nix
 
