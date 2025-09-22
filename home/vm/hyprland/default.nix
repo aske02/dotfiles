@@ -20,15 +20,9 @@
     "$cursorTheme" = "Bibata-Modern-Ice";
     "$cursorSize" = "36";
 
-    "exec-once" = [
-      "caelestia shell -d"
-      "caelestia resizer -d"
-    ];
-
     exec = [
       "hyprctl setcursor $cursorTheme $cursorSize"
-
-      "~/.config/hypr/monitor-switch.sh"
+      "~/.config/hypr/monitor-switch.sh && caelestia shell -d && caelestia resizer -d"
     ];
 
     source = [
@@ -54,15 +48,15 @@
       "SUPER, SPACE, togglefloating"
 
       # Move focus
-      "Alt, W, movefocus, l"
+      "Alt, W, movefocus, u"
+      "Alt, A, movefocus, l"
       "Alt, S, movefocus, d"
-      "Alt, A, movefocus, u"
       "Alt, D, movefocus, r"
 
       # Move Windows
-      "Alt+Shift, W, movewindow, l"
+      "Alt+Shift, W, movewindow, u"
+      "Alt+Shift, A, movewindow, l"
       "Alt+Shift, S, movewindow, d"
-      "Alt+Shift, A, movewindow, u"
       "Alt+Shift, D, movewindow, r"
 
       # Workspace switch

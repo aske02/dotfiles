@@ -17,6 +17,8 @@
     ../../home/programs/1password.nix
     ../../home/programs/ghostty.nix
     ../../home/programs/vscode.nix
+    ../../home/programs/discord.nix
+    ../../home/programs/teams.nix
 
     ../../home/scripts/nixx.nix
   ];

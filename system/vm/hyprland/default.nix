@@ -20,13 +20,18 @@ in {
 
   services.xserver.enable = false;
 
-  hardware.nvidia.open = true;
+  services.xserver.videoDrivers = ["nvidia"];
+  hardware.nvidia.open = false;
+  hardware.nvidia.prime = {
+    sync.enable = true;
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:1:0:0";
+  };
 
   environment.systemPackages = with pkgs; [
     xdg-desktop-portal
     qt5.qtwayland
     qt6.qtwayland
-    capitaine-cursors
     bibata-cursors
     wl-clipboard
     app2unit
