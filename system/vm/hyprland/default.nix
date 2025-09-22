@@ -26,6 +26,8 @@ in {
     xdg-desktop-portal
     qt5.qtwayland
     qt6.qtwayland
+    capitaine-cursors
+    bibata-cursors
     wl-clipboard
     app2unit
     dconf

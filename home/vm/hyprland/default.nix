@@ -17,11 +17,18 @@
     "$browser" = config.var.browser;
     "$editor" = config.var.editor;
 
+    "$cursorTheme" = "Bibata-Modern-Ice";
+    "$cursorSize" = "36";
+
     "exec-once" = [
       "caelestia shell -d"
       "caelestia resizer -d"
+    ];
 
-      "hyprctl setcursor sweet-cursors 24"
+    exec = [
+      "hyprctl setcursor $cursorTheme $cursorSize"
+
+      "~/.config/hypr/monitor-switch.sh"
     ];
 
     source = [
@@ -99,6 +106,9 @@
 
       # Special workspaces
       "SUPER, m, exec, caelestia toggle music"
+
+      # Monitor change
+      "SUPER, F10, exec, ~/.config/hypr/monitor-switch.sh"
     ];
 
     bindin = [
@@ -202,6 +212,14 @@
       "XDG_CURRENT_DESKTOP=Hyprland"
       "XDG_SESSION_TYPE=wayland"
       "XDG_SESSION_DESKTOP=Hyprland"
+
+      "QT_QPA_PLATFORMTHEME=qt5ct"
+      "QT_STYLE_OVERRIDE=kvantum"
+
+      "XCURSOR_THEME=$cursorTheme"
+      "XCURSOR_SIZE=$cursorSize"
+      "GTK_CursorThemeName=$cursorTheme"
+      "GTK_CursorThemeSize=$cursorSize"
     ];
   };
 
@@ -218,5 +236,17 @@
     bindin = SUPER, mouse:277, global, caelestia:launcherInterrupt
     bindin = SUPER, mouse_up, global, caelestia:launcherInterrupt
     bindin = SUPER, mouse_down, global, caelestia:launcherInterrupt
+  '';
+
+  home.file.".config/gtk-4.0/settings.ini".text = ''
+    [Settings]
+    gtk-cursor-theme-name=$cursorTheme
+    gtk-cursor-theme-size=$cursorSize
+  '';
+
+  home.file.".config/gtk-3.0/settings.ini".text = ''
+    [Settings]
+    gtk-cursor-theme-name=$cursorTheme
+    gtk-cursor-theme-size=$cursorSize
   '';
 }
