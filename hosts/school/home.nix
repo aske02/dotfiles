@@ -19,6 +19,7 @@
     ../../home/programs/vscode.nix
     ../../home/programs/discord.nix
     ../../home/programs/teams.nix
+    ../../home/programs/featherpad.nix
 
     ../../home/scripts/nixx.nix
   ];
