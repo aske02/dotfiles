@@ -8,6 +8,10 @@
     ./caelestia
   ];
 
+  home.packages = with pkgs; [
+    shikane
+  ];
+
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.sourceFirst = true;
   wayland.windowManager.hyprland.portalPackage = pkgs.xdg-desktop-portal-hyprland;
@@ -22,7 +26,10 @@
 
     exec = [
       "hyprctl setcursor $cursorTheme $cursorSize"
-      "~/.config/hypr/monitor-switch.sh && caelestia shell -d && caelestia resizer -d"
+      # Caelestia simply need to start later
+      # It tends to break if any screens are changed while starting
+      "sleep 2; caelestia shell -d && caelestia resizer -d"
+      "pkill -x shikane; shikane > ~/.config/shikane/shikane.log 2>&1 &"
     ];
 
     source = [
@@ -100,9 +107,6 @@
 
       # Special workspaces
       "SUPER, m, exec, caelestia toggle music"
-
-      # Monitor change
-      "SUPER, F10, exec, ~/.config/hypr/monitor-switch.sh"
     ];
 
     bindin = [

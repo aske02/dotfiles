@@ -3,7 +3,9 @@
   host,
   pkgs,
   ...
-}: {
+}: let
+  tomlFormat = pkgs.formats.toml {};
+in {
   imports = [
     ../config.nix
 
@@ -33,20 +35,35 @@
 
   programs.home-manager.enable = true;
 
-  home.file.".config/hypr/monitor-switch.sh".executable = true;
-  home.file.".config/hypr/monitor-switch.sh".text = ''
-    LAPTOP=$(hyprctl monitors | grep -E 'eDP|LVDS' | awk '{print $2}')
-    HDMI=$(hyprctl monitors | grep -E 'HDMI' | awk '{print $2}')
-
-    if [ -n "$HDMI" ] && hyprctl monitors | grep -q "$HDMI"; then
-        hyprctl dispatch dpms off "$LAPTOP"
-        hyprctl dispatch dpms on "$HDMI"
-        hyprctl keyword monitor "$LAPTOP,disable"
-        hyprctl keyword monitor "$HDMI,1920x1080@60,0x0,1"
-    else
-        hyprctl dispatch dpms on "$LAPTOP"
-        hyprctl keyword monitor "$LAPTOP,1920x1080@60,0x0,1"
-        [ -n "$HDMI" ] && hyprctl keyword monitor "$HDMI,disable"
-    fi
-  '';
+  # BUG: Laptop screen won't return if hdmi is unplugged while external is active
+  # Not really sure whats causing it, might be related to https://gitlab.com/w0lff/shikane/-/issues/27
+  home.file.".config/shikane/config.toml".source = tomlFormat.generate "config.toml" {
+    profile = [
+      {
+        name = "laptop-only";
+        output = [
+          {
+            search = "eDP-1";
+            enable = true;
+          }
+        ];
+        exec = ["notify-send shikane 'Laptop only profile applied'"];
+      }
+      {
+        name = "extern-only";
+        output = [
+          {
+            search = "n%eDP";
+            enable = false;
+          }
+          {
+            search = "n%HDMI-";
+            mode = "preferred";
+            enable = true;
+          }
+        ];
+        exec = ["notify-send shikane 'External only profile applied'"];
+      }
+    ];
+  };
 }
