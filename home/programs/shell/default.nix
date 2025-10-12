@@ -9,6 +9,7 @@
     onefetch
     bat
     killall
+    alejandra
   ];
 
   programs.bash = {
