@@ -27,8 +27,6 @@ in {
     curl
 
     _1password-cli
-
-    linux-firmware
   ];
 
   security.sudo.wheelNeedsPassword = false;

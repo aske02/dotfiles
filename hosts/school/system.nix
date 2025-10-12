@@ -32,4 +32,8 @@
   home-manager.users."${config.var.username}" = import ./home.nix {inherit config host pkgs;};
 
   system.stateVersion = "25.05";
+
+  environment.systemPackages = with pkgs; [
+    linux-firmware
+  ];
 }
