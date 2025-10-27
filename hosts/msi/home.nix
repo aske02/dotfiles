@@ -12,7 +12,6 @@
     ../../home/programs/git.nix
     ../../home/programs/shell
     ../../home/programs/tailscale.nix
-    ../../home/programs/firefox.nix
     ../../home/programs/librewolf.nix
     ../../home/programs/1password.nix
     ../../home/programs/ghostty.nix
