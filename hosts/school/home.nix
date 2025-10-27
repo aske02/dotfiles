@@ -14,7 +14,6 @@ in {
     ../../home/programs/git.nix
     ../../home/programs/shell
     ../../home/programs/tailscale.nix
-    ../../home/programs/firefox.nix
     ../../home/programs/librewolf.nix
     ../../home/programs/1password.nix
     ../../home/programs/ghostty.nix
@@ -22,6 +21,7 @@ in {
     ../../home/programs/discord.nix
     ../../home/programs/teams.nix
     ../../home/programs/featherpad.nix
+    ../../home/programs/zed
 
     ../../home/scripts/nixx.nix
   ];

@@ -31,6 +31,8 @@
       gitfetch = "onefetch";
 
       nix-shell = "nix-shell --command zsh";
+
+      zed = "zeditor";
     };
 
     initContent = ''
