@@ -5,18 +5,20 @@ in {
   programs.git = {
     enable = true;
 
-    userName = "aske";
-    userEmail = "aske020304@gmail.com";
+    settings = {
+      user = {
+        name = "aske";
+        email = "aske020304@gmail.com";
+      };
 
-    signing = {
-      key = sshKey;
-    };
-
-    extraConfig = {
       github.user = gh_username;
       push.autoSetupRemote = true;
       gpg.format = "ssh";
       commit.gpgSign = true;
+    };
+
+    signing = {
+      key = sshKey;
     };
   };
 }

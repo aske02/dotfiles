@@ -15,7 +15,7 @@ in {
     };
   };
 
-  programs.git.extraConfig = {
+  programs.git.settings = {
     "gpg \"ssh\"" = {
       program = "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}";
     };
