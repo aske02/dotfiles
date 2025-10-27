@@ -22,6 +22,7 @@ in {
     ../../home/programs/teams.nix
     ../../home/programs/featherpad.nix
     ../../home/programs/zed
+    ../../home/programs/beekeeper.nix
 
     ../../home/scripts/nixx.nix
   ];
