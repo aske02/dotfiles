@@ -23,6 +23,7 @@ in {
     ../../home/programs/featherpad.nix
     ../../home/programs/zed
     ../../home/programs/beekeeper.nix
+    ../../home/programs/opencode.nix
 
     ../../home/scripts/nixx.nix
   ];
