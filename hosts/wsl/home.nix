@@ -5,6 +5,7 @@
     ../../home/programs/git.nix
     ../../home/programs/shell
     ../../home/programs/tailscale.nix
+    ../../home/programs/opencode.nix
 
     ../../home/scripts/nixx.nix
   ];
