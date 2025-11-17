@@ -27,6 +27,7 @@
     ../../system/services/keyd.nix
 
     ../../system/programs/1password.nix
+    ../../system/programs/steam.nix
   ];
 
   home-manager.users."${config.var.username}" = import ./home.nix {inherit config host pkgs;};
