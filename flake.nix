@@ -1,5 +1,5 @@
 {
-  description = "Example nix-darwin system flake";
+  description = "My NixOS configs";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -37,6 +37,8 @@
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
+
+    hyprdynamicmonitors.url = "github:fiffeek/hyprdynamicmonitors";
   };
 
   outputs = inputs: let

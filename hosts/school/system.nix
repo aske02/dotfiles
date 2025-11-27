@@ -25,6 +25,7 @@
     ../../system/services/openssh.nix
     ../../system/services/keyring.nix
     ../../system/services/keyd.nix
+    ../../system/services/misc.nix
 
     ../../system/programs/1password.nix
     ../../system/programs/steam.nix

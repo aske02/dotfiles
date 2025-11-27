@@ -27,6 +27,8 @@ in {
     curl
 
     _1password-cli
+
+    libnotify
   ];
 
   security.sudo.wheelNeedsPassword = false;

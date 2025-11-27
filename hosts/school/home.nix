@@ -3,9 +3,7 @@
   host,
   pkgs,
   ...
-}: let
-  tomlFormat = pkgs.formats.toml {};
-in {
+}: {
   imports = [
     ../config.nix
 
@@ -36,36 +34,4 @@ in {
   };
 
   programs.home-manager.enable = true;
-
-  # BUG: Laptop screen won't return if hdmi is unplugged while external is active
-  # Not really sure whats causing it, might be related to https://gitlab.com/w0lff/shikane/-/issues/27
-  home.file.".config/shikane/config.toml".source = tomlFormat.generate "config.toml" {
-    profile = [
-      {
-        name = "laptop-only";
-        output = [
-          {
-            search = "eDP-1";
-            enable = true;
-          }
-        ];
-        exec = ["notify-send shikane 'Laptop only profile applied'"];
-      }
-      {
-        name = "extern-only";
-        output = [
-          {
-            search = "n%eDP";
-            enable = false;
-          }
-          {
-            search = "n%HDMI-";
-            mode = "preferred";
-            enable = true;
-          }
-        ];
-        exec = ["notify-send shikane 'External only profile applied'"];
-      }
-    ];
-  };
 }

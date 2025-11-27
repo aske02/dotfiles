@@ -6,10 +6,7 @@
 }: {
   imports = [
     ./caelestia
-  ];
-
-  home.packages = with pkgs; [
-    shikane
+    ./monitors.nix
   ];
 
   wayland.windowManager.hyprland.enable = true;
@@ -29,12 +26,12 @@
       # Caelestia simply need to start later
       # It tends to break if any screens are changed while starting
       "sleep 2; caelestia shell -d && caelestia resizer -d"
-      "pkill -x shikane; shikane > ~/.config/shikane/shikane.log 2>&1 &"
     ];
 
     source = [
       "~/.config/hypr/scheme/current.conf"
       "~/.config/hypr/submap-binds.conf"
+      "~/.config/hypr/monitors.conf"
     ];
 
     bind = [
