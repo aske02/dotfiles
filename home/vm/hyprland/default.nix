@@ -40,6 +40,7 @@
       "SUPER, L, global, caelestia:lock"
       "Ctrl+Alt, Delete, global, caelestia:session"
       "SUPER, K, global, caelestia:showall"
+      "Super, N, exec, caelestia shell drawers toggle sidebar"
 
       # App launchers
       "SUPER, RETURN, exec, app2unit -- $terminal"
@@ -111,8 +112,8 @@
     ];
 
     bindr = [
-      "Ctrl+SUPER+Shift, R, exec, qs -c caelestia kill"
-      "Ctrl+SUPER+Alt, R, exec, qs -c caelestia kill; caelestia shell -d"
+      "Ctrl+SUPER+Shift, R, exec, caelestia shell -k"
+      "Ctrl+SUPER+Alt, R, exec, caelestia shell -k; sleep 1; caelestia shell -d"
     ];
 
     input = {
