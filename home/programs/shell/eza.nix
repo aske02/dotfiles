@@ -11,4 +11,10 @@
       "--icons=always"
     ];
   };
+
+  shellAliases = {
+    ls = "eza --icons -T -L=1";
+    sl = "ls";
+    tree = "eza --icons -T";
+  };
 }

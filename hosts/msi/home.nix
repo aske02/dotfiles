@@ -11,6 +11,7 @@
 
     ../../home/programs/git.nix
     ../../home/programs/shell
+    ../../home/programs/zed
     ../../home/programs/tailscale.nix
     ../../home/programs/librewolf.nix
     ../../home/programs/1password.nix

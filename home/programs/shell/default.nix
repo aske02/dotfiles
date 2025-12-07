@@ -1,13 +1,14 @@
 {pkgs, ...}: {
   imports = [
+    ./aliases.nix
     ./starship.nix
     ./zsh.nix
     ./eza.nix
+    ./bat.nix
   ];
 
   home.packages = with pkgs; [
     onefetch
-    bat
     killall
     alejandra
   ];
@@ -32,5 +33,14 @@
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
+  };
+
+  shellAliases = {
+    cd = "z";
+
+    nix-shell = "nix-shell --command zsh";
+
+    fetch = "onefetch";
+    gitfetch = "onefetch";
   };
 }

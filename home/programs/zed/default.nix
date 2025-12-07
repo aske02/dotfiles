@@ -1,6 +1,10 @@
 {pkgs, ...}: {
   home.file.".config/zed/themes/theme.json".source = ./theme.json;
 
+  shellAliases = {
+    zed = "zed-editor";
+  };
+
   programs.zed-editor = {
     enable = true;
     package = pkgs.zed-editor;
