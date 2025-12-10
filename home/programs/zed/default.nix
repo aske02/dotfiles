@@ -2,7 +2,7 @@
   home.file.".config/zed/themes/theme.json".source = ./theme.json;
 
   shellAliases = {
-    zed = "zed-editor";
+    zed = "zeditor";
   };
 
   programs.zed-editor = {
