@@ -38,7 +38,11 @@
       url = "github:numtide/flake-utils";
     };
 
-    hyprdynamicmonitors.url = "github:fiffeek/hyprdynamicmonitors";
+    hyprdynamicmonitors = {
+    	url = "github:fiffeek/hyprdynamicmonitors";
+     	inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
   };
 
   outputs = inputs: let
