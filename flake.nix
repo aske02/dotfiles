@@ -39,9 +39,14 @@
     };
 
     hyprdynamicmonitors = {
-    	url = "github:fiffeek/hyprdynamicmonitors";
-     	inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:fiffeek/hyprdynamicmonitors";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
+    };
+
+    opencode = {
+      url = "github:anomalyco/opencode";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

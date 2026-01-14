@@ -1,6 +1,12 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: let
+  opencode = inputs.opencode;
+in {
   programs.opencode = {
     enable = true;
-    package = pkgs.opencode;
+    package = opencode.packages.${pkgs.stdenv.hostPlatform.system}.default;
   };
 }

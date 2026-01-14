@@ -203,6 +203,26 @@
         "type": "github"
       }
     },
+    "opencode": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1768406628,
+        "narHash": "sha256-q3YLlF7jAUGnXcsYuANOSzgRNP7fQaJ0JjRZ+UDIWQA=",
+        "owner": "anomalyco",
+        "repo": "opencode",
+        "rev": "e6e7eaf6e0ce50a0d5ff31f330972f749bec819c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anomalyco",
+        "repo": "opencode",
+        "type": "github"
+      }
+    },
     "quickshell": {
       "inputs": {
         "nixpkgs": [
@@ -233,6 +253,7 @@
         "hyprdynamicmonitors": "hyprdynamicmonitors",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
+        "opencode": "opencode",
         "sops-nix": "sops-nix",
         "spicetify": "spicetify"
       }
