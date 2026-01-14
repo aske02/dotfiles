@@ -1,6 +1,8 @@
 {
+  config,
   pkgs,
   host,
+  lib,
   ...
 }: let
   hostname = host.hostname;
@@ -9,7 +11,7 @@
 in {
   networking.hostName = hostname;
 
-  networking.networkmanager.enable = true;
+  networking.networkmanager.enable = lib.mkDefault (!config.wsl.enable);
   systemd.services.NetworkManager-wait-online.enable = false;
 
   time = {timeZone = timeZone;};

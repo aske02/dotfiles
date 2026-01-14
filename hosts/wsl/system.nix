@@ -1,19 +1,20 @@
 {
   config,
   pkgs,
+  lib,
   host,
   ...
 }: {
   imports = [
     ../config.nix
 
-    ../../system/nix.nix
     ../../system/wsl.nix
+
+    ../../system/nix.nix
     ../../system/user.nix
     ../../system/home-manager.nix
     ../../system/docker.nix
-    (import ../../system/util.nix {inherit config pkgs host;})
-
+    ../../system/util.nix
     ../../system/sops.nix
 
     ../../system/services/1password-agent.nix
