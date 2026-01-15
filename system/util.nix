@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   host,
   lib,
@@ -11,7 +10,7 @@
 in {
   networking.hostName = hostname;
 
-  networking.networkmanager.enable = lib.mkDefault (!config.wsl.enable);
+  networking.networkmanager.enable = lib.mkDefault true;
   systemd.services.NetworkManager-wait-online.enable = false;
 
   time = {timeZone = timeZone;};
