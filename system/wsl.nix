@@ -10,8 +10,8 @@
   services.resolved = {
     enable = true;
     settings.Resolve = {
-    	Domains = ["~."];
-     	DNSSEC = "false";
+      Domains = ["~."];
+      DNSSEC = "false";
       DNSOverTLS = "false";
     };
   };

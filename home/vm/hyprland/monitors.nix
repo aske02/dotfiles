@@ -4,9 +4,10 @@
   ...
 }: let
   tomlFormat = pkgs.formats.toml {};
+  system = pkgs.stdenv.hostPlatform.system;
 in {
   home.packages = [
-    inputs.hyprdynamicmonitors.packages.${pkgs.system}.default
+    inputs.hyprdynamicmonitors.packages.${system}.default
   ];
 
   imports = [

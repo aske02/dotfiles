@@ -2,12 +2,14 @@
   pkgs,
   inputs,
   ...
-}: {
+}: let
+  system = pkgs.stdenv.hostPlatform.system;
+in {
   programs.librewolf = {
     enable = true;
     package = pkgs.librewolf;
     profiles.default = {
-      extensions.packages = with inputs.NUR.legacyPackages.${pkgs.system}.repos.rycee.firefox-addons; [
+      extensions.packages = with inputs.NUR.legacyPackages.${system}.repos.rycee.firefox-addons; [
         ublock-origin
         sponsorblock
         refined-github
