@@ -1,5 +1,8 @@
-{ config, lib, ... }:
-let
+{
+  config,
+  lib,
+  ...
+}: let
   cfg = config.dot.system.services.openssh;
   username = config.var.username;
   sshKeys = config.var.sshKeys;

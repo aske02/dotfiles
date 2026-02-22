@@ -1,8 +1,13 @@
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   cfg = config.dot.system.programs.onepassword;
   username = config.var.username;
-  hmEnable = lib.attrByPath
+  hmEnable =
+    lib.attrByPath
     ["home-manager" "users" username "dot" "programs" "onepassword" "enable"]
     false
     config;

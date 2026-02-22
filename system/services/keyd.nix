@@ -1,5 +1,8 @@
-{ config, lib, ... }:
-let
+{
+  config,
+  lib,
+  ...
+}: let
   cfg = config.dot.system.services.keyd;
 in {
   options.dot.system.services.keyd.enable =

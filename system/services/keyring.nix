@@ -1,5 +1,8 @@
-{ config, lib, ... }:
-let
+{
+  config,
+  lib,
+  ...
+}: let
   cfg = config.dot.system.services.keyring;
 in {
   options.dot.system.services.keyring.enable =

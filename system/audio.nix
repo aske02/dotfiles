@@ -1,5 +1,8 @@
-{ config, lib, ... }:
-let
+{
+  config,
+  lib,
+  ...
+}: let
   cfg = config.dot.system.features.audio;
 in {
   options.dot.system.features.audio.enable =

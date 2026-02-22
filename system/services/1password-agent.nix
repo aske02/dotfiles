@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   cfg = config.dot.system.services.onepasswordAgent;
 in {
   options.dot.system.services.onepasswordAgent.enable =

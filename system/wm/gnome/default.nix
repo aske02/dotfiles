@@ -1,5 +1,8 @@
-{ config, lib, ... }:
-let
+{
+  config,
+  lib,
+  ...
+}: let
   cfg = config.dot.system.wm.gnome;
 in {
   options.dot.system.wm.gnome.enable =

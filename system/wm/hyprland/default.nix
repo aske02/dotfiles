@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   cfg = config.dot.system.wm.hyprland;
 in {
   options.dot.system.wm.hyprland = {

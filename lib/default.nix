@@ -25,10 +25,7 @@ in {
 
               ../hosts/${name}/system.nix
 
-              ({
-                config,
-                ...
-              }: {
+              ({config, ...}: {
                 home-manager.users.${config.var.username} = {
                   imports = [
                     ../hosts/config.nix

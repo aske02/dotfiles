@@ -1,5 +1,8 @@
-{ config, lib, ... }:
-let
+{
+  config,
+  lib,
+  ...
+}: let
   cfg = config.dot.system.core.nix;
 in {
   options.dot.system.core.nix.enable = lib.mkOption {
