@@ -40,7 +40,6 @@ in {
         user = config.var.username;
       };
     };
-    services.displayManager.defaultSession = "hyprland";
 
     services.xserver.enable = false;
 
