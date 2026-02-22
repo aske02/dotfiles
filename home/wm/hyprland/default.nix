@@ -9,7 +9,7 @@
   host = config._module.args.host or null;
 
   cursorTheme = "Bibata-Modern-Ice";
-	cursorSize = "36";
+  cursorSize = "36";
 in {
   imports = [
     ./caelestia

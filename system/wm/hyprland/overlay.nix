@@ -1,7 +1,4 @@
-{
-  inputs,
-  ...
-}: {
+{inputs, ...}: {
   nixpkgs.overlays = [
     (final: prev: {
       caelestia-shell = inputs.caelestia.packages.${prev.system}.caelestia-shell;
