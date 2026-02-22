@@ -9,23 +9,33 @@
 
     ./hardware-config.nix
 
-    ../../system/boot.nix
-    ../../system/nix.nix
-    ../../system/user.nix
-    ../../system/home-manager.nix
-    ../../system/docker.nix
-    ../../system/util.nix
-    ../../system/audio.nix
-
-    ../../system/vm/hyprland
-
-    ../../system/sops.nix
-
-    ../../system/services/tailscale.nix
-    ../../system/services/openssh.nix
-
-    ../../system/programs/1password.nix
+    ../../system
   ];
+
+  dot.system = {
+    features = {
+      boot.enable = true;
+      audio.enable = true;
+      docker.enable = true;
+      sops.enable = true;
+    };
+
+    programs.onepassword.enable = true;
+
+    services = {
+      tailscale.enable = true;
+      openssh.enable = true;
+    };
+
+    wm = {
+      hyprland = {
+        enable = true;
+        nvidiaPrime.enable = true;
+        nvidiaPrime.intelBusId = "PCI:0:2:0";
+        nvidiaPrime.nvidiaBusId = "PCI:1:0:0";
+      };
+    };
+  };
 
   home-manager.users."${config.var.username}" = import ./home.nix {inherit config host pkgs;};
 

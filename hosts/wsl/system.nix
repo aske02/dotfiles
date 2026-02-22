@@ -10,16 +10,20 @@
 
     ../../system/wsl.nix
 
-    ../../system/nix.nix
-    ../../system/user.nix
-    ../../system/home-manager.nix
-    ../../system/docker.nix
-    ../../system/util.nix
-    ../../system/sops.nix
-
-    ../../system/services/1password-agent.nix
-    ../../system/services/tailscale.nix
+    ../../system
   ];
+
+  dot.system = {
+    features = {
+      docker.enable = true;
+      sops.enable = true;
+    };
+
+    services = {
+      onepasswordAgent.enable = true;
+      tailscale.enable = true;
+    };
+  };
 
   home-manager.users."${config.var.username}" = import ./home.nix {inherit config host pkgs;};
 

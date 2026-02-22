@@ -1,16 +1,26 @@
 {
+  config,
   inputs,
+  lib,
   pkgs,
   ...
 }: {
-  environment.systemPackages = [
-    pkgs.home-manager
-  ];
+  options.dot.system.core.homeManager.enable = lib.mkOption {
+    type = lib.types.bool;
+    default = true;
+    description = "Enable Home Manager integration.";
+  };
 
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    backupFileExtension = "hm-backup";
-    extraSpecialArgs = {inherit inputs;};
+  config = lib.mkIf config.dot.system.core.homeManager.enable {
+    environment.systemPackages = [
+      pkgs.home-manager
+    ];
+
+    home-manager = {
+      useGlobalPkgs = true;
+      useUserPackages = true;
+      backupFileExtension = "hm-backup";
+      extraSpecialArgs = {inherit inputs;};
+    };
   };
 }

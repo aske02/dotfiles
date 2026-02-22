@@ -1,9 +1,11 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
-  config = {
+{ config, lib, pkgs, ... }:
+let
+  cfg = config.dot.system.services.onepasswordAgent;
+in {
+  options.dot.system.services.onepasswordAgent.enable =
+    lib.mkEnableOption "1Password SSH agent relay (npiperelay)";
+
+  config = lib.mkIf cfg.enable {
     systemd.services."1password-agent" = {
       description = "1Password SSH Agent Relay";
       wantedBy = ["multi-user.target"];
@@ -25,8 +27,6 @@
       };
     };
 
-    environment.variables = {
-      SSH_AUTH_SOCK = "/run/1password-agent.sock";
-    };
+    environment.variables.SSH_AUTH_SOCK = "/run/1password-agent.sock";
   };
 }

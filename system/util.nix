@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   host,
   lib,
@@ -7,30 +8,37 @@
   hostname = host.hostname;
   timeZone = host.timezone;
   defaultLocale = host.locale;
+  cfg = config.dot.system.core.util;
 in {
-  networking.hostName = hostname;
+  options.dot.system.core.util.enable = lib.mkOption {
+    type = lib.types.bool;
+    default = true;
+    description = "Enable base system utilities and defaults.";
+  };
 
-  networking.networkmanager.enable = lib.mkDefault true;
-  systemd.services.NetworkManager-wait-online.enable = false;
+  config = lib.mkIf cfg.enable {
+    networking.hostName = hostname;
 
-  time = {timeZone = timeZone;};
-  i18n.defaultLocale = defaultLocale;
-  console.keyMap = "dk-latin1";
+    networking.networkmanager.enable = lib.mkDefault true;
+    systemd.services.NetworkManager-wait-online.enable = false;
 
-  programs.nix-ld.enable = true;
+    time = {timeZone = timeZone;};
+    i18n.defaultLocale = defaultLocale;
+    console.keyMap = "dk-latin1";
 
-  environment.pathsToLink = ["/share/zsh"];
+    programs.nix-ld.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    nixd
+    environment.pathsToLink = ["/share/zsh"];
 
-    wget
-    curl
+    environment.systemPackages = with pkgs; [
+      nixd
 
-    _1password-cli
+      wget
+      curl
 
-    libnotify
-  ];
+      libnotify
+    ];
 
-  security.sudo.wheelNeedsPassword = false;
+    security.sudo.wheelNeedsPassword = false;
+  };
 }
