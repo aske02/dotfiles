@@ -2,10 +2,7 @@
   imports = [
     ../config.nix
 
-    ../../home/programs/git.nix
-    ../../home/programs/shell
-    ../../home/programs/tailscale.nix
-    ../../home/programs/opencode.nix
+    ../../home
 
     ../../home/scripts/nixx.nix
   ];
@@ -18,4 +15,9 @@
   };
 
   programs.home-manager.enable = true;
+
+  dot.programs.git.enable = true;
+  dot.programs.opencode.enable = true;
+
+  dot.shell.enable = true;
 }

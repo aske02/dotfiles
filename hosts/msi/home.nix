@@ -9,15 +9,7 @@
 
     (import ../../home/vm/hyprland {inherit config host pkgs;})
 
-    ../../home/programs/git.nix
-    ../../home/programs/shell
-    ../../home/programs/zed
-    ../../home/programs/tailscale.nix
-    ../../home/programs/librewolf.nix
-    ../../home/programs/1password.nix
-    ../../home/programs/ghostty.nix
-    ../../home/programs/vscode.nix
-    ../../home/programs/spicetify.nix
+    ../../home
 
     ../../home/scripts/nixx.nix
   ];
@@ -30,4 +22,19 @@
   };
 
   programs.home-manager.enable = true;
+
+  dot = {
+    programs = {
+      git.enable = true;
+      onepassword.enable = true;
+      ghostty.enable = true;
+      zed.enable = true;
+      vscode.enable = true;
+      spicetify.enable = true;
+      tailscale.enable = true;
+      librewolf.enable = true;
+    };
+
+    shell.enable = true;
+  };
 }

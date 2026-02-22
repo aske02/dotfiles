@@ -1,64 +1,78 @@
-{pkgs, ...}: {
-  home.file.".config/zed/themes/theme.json".source = ./theme.json;
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.dot.programs.zed;
+in {
+  options.dot.programs.zed.enable = lib.mkEnableOption "Zed editor";
 
-  shellAliases = {
-    zed = "zeditor";
-  };
+  config = lib.mkMerge [
+    # Keep this alias behavior unchanged for now.
+    {
+      dot.shell.aliases.zed = "zeditor";
+    }
 
-  programs.zed-editor = {
-    enable = true;
-    package = pkgs.zed-editor;
-    extensions = [
-      "jetbrains-new-ui-icons"
-      "nix"
-      "toml"
-      "lua"
-      "prisma"
-      "dockerfile"
-    ];
-    extraPackages = with pkgs; [
-      nixd
-      alejandra
-    ];
-    userSettings = {
-      calls.mute_on_join = true;
-      diagnostics.inline.enabled = true;
-      relative_line_numbers = true;
-      minimap.show = "auto";
-      soft_wrap = "editor_width";
-      hard_tabs = true;
-      base_keymap = "VSCode";
-      icon_theme = "JetBrains New UI Icons (Dark)";
-      ui_font_size = 16;
-      theme = {
-        mode = "dark";
-        light = "Her.";
-        dark = "Her.";
-      };
-      languages = {
-        Nix = {
-          language_servers = ["nixd" "!nil"];
-          formatter = {
-            external = {
-              command = "alejandra";
-              arguments = ["--quiet" "--"];
+    (lib.mkIf cfg.enable {
+      home.file.".config/zed/themes/theme.json".source = ./theme.json;
+
+      programs.zed-editor = {
+        enable = true;
+        package = pkgs.zed-editor;
+        extensions = [
+          "jetbrains-new-ui-icons"
+          "nix"
+          "toml"
+          "lua"
+          "prisma"
+          "dockerfile"
+        ];
+        extraPackages = with pkgs; [
+          nixd
+          alejandra
+        ];
+        userSettings = {
+          calls.mute_on_join = true;
+          diagnostics.inline.enabled = true;
+          relative_line_numbers = true;
+          minimap.show = "auto";
+          soft_wrap = "editor_width";
+          hard_tabs = true;
+          base_keymap = "VSCode";
+          icon_theme = "JetBrains New UI Icons (Dark)";
+          ui_font_size = 16;
+          theme = {
+            mode = "dark";
+            light = "Her.";
+            dark = "Her.";
+          };
+          languages = {
+            Nix = {
+              language_servers = ["nixd" "!nil"];
+              formatter = {
+                external = {
+                  command = "alejandra";
+                  arguments = ["--quiet" "--"];
+                };
+              };
             };
           };
+          indent_guides = {
+            enabled = true;
+            coloring = "indent_aware";
+            background_coloring = "indent_aware";
+          };
+          show_whitespaces = "trailing";
+          remove_trailing_whitespace_on_save = true;
+          prettier.allowed = true;
+
+          features = {
+            edit_prediction_provider = "copilot";
+          };
+          show_edit_predictions = true;
         };
       };
-      indent_guides = {
-        enabled = true;
-        coloring = "indent_aware";
-        background_coloring = "indent_aware";
-      };
-      show_whitespaces = "trailing";
-      remove_trailing_whitespace_on_save = true;
-      prettier.allowed = true;
-
-      features = {
-        edit_prediction_provider = "copilot";
-      };
-      show_edit_predictions = true;
-    };
-  };
+    })
+  ];
 }
