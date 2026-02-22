@@ -20,7 +20,10 @@
       useGlobalPkgs = true;
       useUserPackages = true;
       backupFileExtension = "hm-backup";
-      extraSpecialArgs = {inherit inputs;};
+      extraSpecialArgs = {
+        inherit inputs;
+        host = config._module.args.host;
+      };
     };
   };
 }

@@ -6,11 +6,7 @@
   ...
 }: {
   imports = [
-    ../config.nix
-
     ../../system/wsl.nix
-
-    ../../system
   ];
 
   dot.system = {
@@ -24,8 +20,6 @@
       tailscale.enable = true;
     };
   };
-
-  home-manager.users."${config.var.username}" = import ./home.nix {inherit config host pkgs;};
 
   system.stateVersion = "24.05";
 }

@@ -19,7 +19,24 @@ in {
           system = host.target;
           modules =
             [
+              ../hosts/config.nix
+
+              ../system
+
               ../hosts/${name}/system.nix
+
+              ({
+                config,
+                ...
+              }: {
+                home-manager.users.${config.var.username} = {
+                  imports = [
+                    ../hosts/config.nix
+                    ../home
+                    ../hosts/${name}/home.nix
+                  ];
+                };
+              })
             ]
             ++ host.extraModules;
           specialArgs = {

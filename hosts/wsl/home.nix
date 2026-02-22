@@ -1,9 +1,5 @@
 {config, ...}: {
-  imports = [
-    ../config.nix
-
-    ../../home
-  ];
+  imports = [];
 
   home = {
     inherit (config.var) username;

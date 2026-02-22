@@ -5,11 +5,7 @@
   ...
 }: {
   imports = [
-    ../config.nix
-
     ./hardware-config.nix
-
-    ../../system
   ];
 
   dot.system = {
@@ -42,8 +38,6 @@
       };
     };
   };
-
-  home-manager.users."${config.var.username}" = import ./home.nix {inherit config host pkgs;};
 
   system.stateVersion = "25.05";
 
