@@ -3,8 +3,6 @@
     ../config.nix
 
     ../../home
-
-    ../../home/scripts/nixx.nix
   ];
 
   home = {

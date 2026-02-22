@@ -7,11 +7,7 @@
   imports = [
     ../config.nix
 
-    (import ../../home/vm/hyprland {inherit config host pkgs;})
-
     ../../home
-
-    ../../home/scripts/nixx.nix
   ];
 
   home = {
@@ -40,5 +36,7 @@
     };
 
     shell.enable = true;
+
+    wm.hyprland.enable = true;
   };
 }

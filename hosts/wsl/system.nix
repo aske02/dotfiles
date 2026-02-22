@@ -21,7 +21,7 @@
     ../../system/services/tailscale.nix
   ];
 
-  home-manager.users."${config.var.username}" = import ./home.nix;
+  home-manager.users."${config.var.username}" = import ./home.nix {inherit config host pkgs;};
 
   system.stateVersion = "24.05";
 }
