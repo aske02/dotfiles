@@ -7,6 +7,9 @@
   cfg = config.dot.wm.hyprland;
 
   host = config._module.args.host or null;
+
+  cursorTheme = "Bibata-Modern-Ice";
+	cursorSize = "36";
 in {
   imports = [
     ./caelestia
@@ -26,8 +29,8 @@ in {
         "$browser" = config.var.browser;
         "$editor" = config.var.editor;
 
-        "$cursorTheme" = "Bibata-Modern-Ice";
-        "$cursorSize" = "36";
+        "$cursorTheme" = cursorTheme;
+        "$cursorSize" = cursorSize;
 
         exec = [
           "hyprctl setcursor $cursorTheme $cursorSize"
@@ -243,14 +246,14 @@ in {
 
       home.file.".config/gtk-4.0/settings.ini".text = ''
         [Settings]
-        gtk-cursor-theme-name=$cursorTheme
-        gtk-cursor-theme-size=$cursorSize
+        gtk-cursor-theme-name=${cursorTheme}
+        gtk-cursor-theme-size=${cursorSize}
       '';
 
       home.file.".config/gtk-3.0/settings.ini".text = ''
         [Settings]
-        gtk-cursor-theme-name=$cursorTheme
-        gtk-cursor-theme-size=$cursorSize
+        gtk-cursor-theme-name=${cursorTheme}
+        gtk-cursor-theme-size=${cursorSize}
       '';
     })
   ];
