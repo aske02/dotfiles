@@ -69,6 +69,7 @@ in {
         intelBusId = cfg.nvidiaPrime.intelBusId;
         nvidiaBusId = cfg.nvidiaPrime.nvidiaBusId;
       };
+      modesetting.enable = true;
     };
   };
 }
