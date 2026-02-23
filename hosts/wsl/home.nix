@@ -11,6 +11,7 @@
   programs.home-manager.enable = true;
 
   dot.programs.git.enable = true;
+  dot.programs.lazygit.enable = true;
   dot.programs.opencode.enable = true;
 
   dot.shell.enable = true;

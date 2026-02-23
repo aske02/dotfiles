@@ -6,6 +6,7 @@
     ./featherpad.nix
     ./ghostty.nix
     ./git.nix
+    ./lazygit.nix
     ./librewolf.nix
     ./opencode.nix
     ./spicetify.nix

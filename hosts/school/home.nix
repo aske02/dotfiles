@@ -18,6 +18,7 @@
   dot = {
     programs = {
       git.enable = true;
+      lazygit.enable = true;
       onepassword.enable = true;
       ghostty.enable = true;
       zed.enable = true;
