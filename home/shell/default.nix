@@ -25,6 +25,7 @@ in {
     ./zsh.nix
     ./eza.nix
     ./bat.nix
+    ./tmux
   ];
 
   options.dot.shell = {
