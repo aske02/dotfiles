@@ -128,7 +128,7 @@ in {
         ];
 
         input = {
-          kb_layout = host.kb_layout or "us";
+          kb_layout = host.kb_layout or "dk";
 
           touchpad = {
             natural_scroll = true;
