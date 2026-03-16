@@ -10,7 +10,9 @@ in {
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
-      teams-for-linux
+      (teams-for-linux.override {
+        electron_39 = electron_39-bin;
+      })
     ];
   };
 }
