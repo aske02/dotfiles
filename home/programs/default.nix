@@ -8,7 +8,7 @@
     ./git.nix
     ./lazygit.nix
     ./librewolf.nix
-    ./opencode.nix
+    ./opencode
     ./spicetify.nix
     ./tailscale.nix
     ./teams.nix

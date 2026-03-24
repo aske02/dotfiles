@@ -64,6 +64,11 @@
       system: let
         pkgs = lib.pkgsFor system;
       in {
+        packages = {
+          "plannotator-opencode-plugin" = pkgs.callPackage ./pkgs/plannotator-opencode-plugin.nix {};
+          "opencode-notifier-plugin" = pkgs.callPackage ./pkgs/opencode-notifier-plugin.nix {};
+        };
+
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
             alejandra

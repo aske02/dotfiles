@@ -3,3 +3,5 @@
 .direnv/
 
 secrets/secrets.enc.yaml
+
+result

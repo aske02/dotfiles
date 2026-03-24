@@ -1,10 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  host,
-  ...
-}: {
+{...}: {
   imports = [
     ../../system/wsl.nix
   ];
@@ -13,6 +7,7 @@
     features = {
       docker.enable = true;
       sops.enable = true;
+      audio.enable = true;
     };
 
     services = {
