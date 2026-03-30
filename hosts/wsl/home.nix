@@ -25,10 +25,6 @@
           question = 0.5;
           subagent_complete = 0.5;
         };
-
-        plannotator.env = {
-          PLANNOTATOR_BROWSER = "librewolf.exe";
-        };
       };
     };
   };
