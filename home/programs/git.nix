@@ -26,6 +26,7 @@ in {
       };
 
       signing = {
+        format = "ssh";
         key = sshKey;
       };
     };
