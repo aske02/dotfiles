@@ -61,6 +61,10 @@
 
     webfetch = "allow";
 
+    skill = {
+      "*" = "allow";
+    };
+
     external_directory = "ask";
 
     bash = {

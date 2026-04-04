@@ -48,6 +48,10 @@
       url = "github:anomalyco/opencode";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    skills-catalog = {
+      url = "path:./home/programs/opencode/skills-catalog";
+    };
   };
 
   outputs = inputs: let

@@ -98,6 +98,43 @@ in {
         description = "Extra settings merged into opencode-notifier.json";
       };
     };
+
+    addons.skills = {
+      enable = lib.mkOption {
+        type = lib.types.bool;
+        default = true;
+        description = "Install OpenCode skills into the config directory";
+      };
+
+      sources = lib.mkOption {
+        type = lib.types.attrsOf (lib.types.submodule ({...}: {
+          options = {
+            root = lib.mkOption {
+              type = lib.types.path;
+              description = "Root directory that contains skill directories with SKILL.md files";
+            };
+
+            enableAll = lib.mkOption {
+              type = lib.types.bool;
+              default = false;
+              description = "Install all valid skills from this source";
+            };
+
+            skills = lib.mkOption {
+              type = lib.types.listOf lib.types.str;
+              default = [];
+              description = "Specific skills to install from this source";
+            };
+          };
+
+          config = {
+            root = lib.mkDefault ./skills;
+          };
+        }));
+        default = import ./skills {inherit inputs;};
+        description = "Skill sources to expose to OpenCode agents";
+      };
+    };
   };
 
   config = lib.mkIf cfg.enable {
