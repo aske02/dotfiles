@@ -59,7 +59,7 @@
     glob = "allow";
     grep = "allow";
 
-    webfetch = "ask";
+    webfetch = "allow";
 
     external_directory = "ask";
 
@@ -83,24 +83,24 @@
 
       "git commit*" = "deny";
       "git push*" = "deny";
-      "git pull*" = "deny";
-      "git fetch*" = "deny";
-      "git clone*" = "deny";
-      "git restore*" = "deny";
-      "git reset*" = "deny";
-      "git revert*" = "deny";
-      "git cherry-pick*" = "deny";
-      "git rebase*" = "deny";
-      "git merge*" = "deny";
-      "git checkout*" = "deny";
-      "git switch*" = "deny";
-      "git branch*" = "deny";
-      "git tag*" = "deny";
-      "git branch -d*" = "deny";
-      "git branch -D*" = "deny";
-      "git branch --delete*" = "deny";
-      "git tag -d*" = "deny";
-      "git tag --delete*" = "deny";
+      "git pull*" = "ask";
+      "git fetch*" = "ask";
+      "git clone*" = "ask";
+      "git restore*" = "ask";
+      "git reset*" = "ask";
+      "git revert*" = "ask";
+      "git cherry-pick*" = "ask";
+      "git rebase*" = "ask";
+      "git merge*" = "ask";
+      "git checkout*" = "ask";
+      "git switch*" = "ask";
+      "git branch*" = "ask";
+      "git tag*" = "ask";
+      "git branch -d*" = "ask";
+      "git branch -D*" = "ask";
+      "git branch --delete*" = "ask";
+      "git tag -d*" = "ask";
+      "git tag --delete*" = "ask";
     };
   };
 }
