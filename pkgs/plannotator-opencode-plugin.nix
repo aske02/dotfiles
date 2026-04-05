@@ -23,7 +23,7 @@ stdenvNoCC.mkDerivation {
 
   outputHashMode = "recursive";
   outputHashAlgo = "sha256";
-  outputHash = "sha256-mMLSUjh4wsYy8wQQZjUwtEEq5IDyvDmnQPufO6DXyB4=";
+  outputHash = "sha256-kL2Cubr/lvQqL4p6E4Szat8jiDPM7h1U4wM+yOAvp04=";
 
   dontFixup = true;
 
@@ -69,8 +69,12 @@ stdenvNoCC.mkDerivation {
     mkdir -p "$out/plugins"
     mkdir -p "$out/commands"
 
+    cp apps/opencode-plugin/plannotator.html "$out/plannotator.html"
+    cp apps/opencode-plugin/review-editor.html "$out/review-editor.html"
+
     cp apps/opencode-plugin/dist/index.js "$out/plugins/plannotator.js"
     cp apps/opencode-plugin/commands/plannotator-annotate.md "$out/commands/"
+    cp apps/opencode-plugin/commands/plannotator-archive.md "$out/commands/"
     cp apps/opencode-plugin/commands/plannotator-last.md "$out/commands/"
     cp apps/opencode-plugin/commands/plannotator-review.md "$out/commands/"
 
