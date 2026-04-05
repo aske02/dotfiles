@@ -18,7 +18,24 @@
     },
     "root": {
       "inputs": {
-        "anthropic-skills": "anthropic-skills"
+        "anthropic-skills": "anthropic-skills",
+        "vercel-skills": "vercel-skills"
+      }
+    },
+    "vercel-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775165248,
+        "narHash": "sha256-1l6cthflz36+ihVQJ5PVl2GysLl1NBiKNNl8LUg+U28=",
+        "owner": "vercel-labs",
+        "repo": "agent-skills",
+        "rev": "73140fc5b3a214ad3222bcf557b397b3c02d11c1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vercel-labs",
+        "repo": "agent-skills",
+        "type": "github"
       }
     }
   },
