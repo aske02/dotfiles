@@ -6,7 +6,6 @@
   ...
 }: let
   cfg = config.dot.programs.opencode;
-  system = pkgs.stdenv.hostPlatform.system;
 in {
   imports = [
     ./plugins
@@ -90,7 +89,7 @@ in {
   config = lib.mkIf cfg.enable {
     programs.opencode = {
       enable = true;
-      package = inputs.opencode.packages.${system}.default;
+      package = pkgs.opencode;
       settings =
         lib.recursiveUpdate (import ./settings.nix {}) cfg.extraSettings;
     };

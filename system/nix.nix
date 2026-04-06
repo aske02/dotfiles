@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   ...
 }: let
@@ -19,6 +20,10 @@ in {
         "beekeeper-studio-5.5.7"
       ];
     };
+
+    nixpkgs.overlays = [
+      inputs.auxera-pkgs.overlays.default
+    ];
 
     nix = {
       extraOptions = ''

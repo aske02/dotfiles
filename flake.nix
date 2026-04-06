@@ -44,21 +44,11 @@
       inputs.flake-utils.follows = "flake-utils";
     };
 
-    opencode = {
-      url = "github:anomalyco/opencode";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     skills-catalog = {
       url = "path:./home/programs/opencode/skills-catalog";
     };
 
-    auxera-pkgs = {
-      url = "github:auxera/nixpkgs";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-      inputs.flake-utils.follows = "flake-utils";
-    };
+    auxera-pkgs.url = "github:auxera/nixpkgs";
   };
 
   outputs = inputs: let
