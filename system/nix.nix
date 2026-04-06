@@ -28,6 +28,11 @@ in {
         download-buffer-size = 209715200; # 200 MiB
         auto-optimise-store = true;
         experimental-features = ["nix-command" "flakes"];
+        substituters = ["https://cache.nixos.org" "https://auxera.cachix.org"];
+        trusted-public-keys = [
+          "cache.nixos.org-1:6NCHdD59X431o0gWypbMrA3kbhn2flpey849RP97Bh4="
+          "auxera.cachix.org-1:47t8ocmmQE2OyAEipk98QQsAqG9GFz+5yQ4Ey1AjIHM="
+        ];
       };
       gc = {
         automatic = true;
