@@ -1,4 +1,8 @@
-{nixpkgs, ...}: let
+{
+  nixpkgs,
+  auxera-pkgs,
+  ...
+}: let
 in {
   pkgsFor = system:
     import nixpkgs {
@@ -7,6 +11,7 @@ in {
         allowUnfree = true;
         allowUnfreePredicate = _: true;
       };
+      overlays = [auxera-pkgs.overlays.default];
     };
 
   mkNix = {

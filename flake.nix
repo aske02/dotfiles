@@ -52,6 +52,13 @@
     skills-catalog = {
       url = "path:./home/programs/opencode/skills-catalog";
     };
+
+    auxera-pkgs = {
+      url = "github:auxera/nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+      inputs.flake-utils.follows = "flake-utils";
+    };
   };
 
   outputs = inputs: let
@@ -68,11 +75,6 @@
       system: let
         pkgs = lib.pkgsFor system;
       in {
-        packages = {
-          "plannotator-opencode-plugin" = pkgs.callPackage ./pkgs/plannotator-opencode-plugin.nix {};
-          "opencode-notifier-plugin" = pkgs.callPackage ./pkgs/opencode-notifier-plugin.nix {};
-        };
-
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
             alejandra

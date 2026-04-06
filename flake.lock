@@ -37,6 +37,32 @@
         "type": "github"
       }
     },
+    "auxera-pkgs": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1775434364,
+        "narHash": "sha256-jE9GBCCBDR6gVuxBnTuEkMtSIF+UkTZ954c9O9sPZCg=",
+        "owner": "auxera",
+        "repo": "nixpkgs",
+        "rev": "5118b22c2bc02ce40290bc82f48558a7fd14cec6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "auxera",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "caelestia": {
       "inputs": {
         "caelestia-cli": "caelestia-cli",
@@ -263,6 +289,7 @@
     "root": {
       "inputs": {
         "NUR": "NUR",
+        "auxera-pkgs": "auxera-pkgs",
         "caelestia": "caelestia",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",

@@ -16,15 +16,8 @@
     opencode = {
       enable = true;
       addons = {
-        notifier.soundOnly = true;
-        notifier.settings.suppressWhenFocused = false;
-        notifier.volumes = {
-          permission = 0.5;
-          complete = 0.5;
-          error = 0.5;
-          question = 0.5;
-          subagent_complete = 0.5;
-        };
+        notifier.sound = true;
+        notifier.notification = false;
       };
     };
   };
