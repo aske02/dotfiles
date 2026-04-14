@@ -63,6 +63,7 @@ in {
 
     hardware.nvidia = lib.mkIf cfg.nvidiaPrime.enable {
       open = false;
+      package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
       prime = {
         sync.enable = true;
         intelBusId = cfg.nvidiaPrime.intelBusId;
