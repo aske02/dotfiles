@@ -37,9 +37,9 @@
       ".direnv/*" = "deny";
       ".env" = "deny";
       "*.env" = "deny";
-      "*.env.*" = "deny";
       ".env.*" = "deny";
-      "*.envrc" = "deny";
+      ".env.example" = "allow";
+      ".envrc" = "allow";
       "secrets/*" = "deny";
       ".config/*" = "ask";
       ".ssh/*" = "deny";
