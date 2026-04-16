@@ -114,6 +114,9 @@ in {
           # Screenshots
           "SUPER, S, exec, caelestia screenshot"
 
+          # Monitor presentation mode (writable TUI state)
+          "SUPER, P, exec, app2unit -- hdm-tui"
+
           # Special workspaces
           "SUPER, m, exec, caelestia toggle music"
         ];
