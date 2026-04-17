@@ -48,6 +48,14 @@ in {
       };
     };
 
+    addons.superpowers = {
+      enable = lib.mkOption {
+        type = lib.types.bool;
+        default = true;
+        description = "Enable superpowers skill/plugin";
+      };
+    };
+
     addons.skills = {
       enable = lib.mkOption {
         type = lib.types.bool;
