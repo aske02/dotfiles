@@ -6,6 +6,8 @@
   ...
 }: let
   cfg = config.dot.programs.opencode;
+  system = pkgs.stdenv.system;
+  opencode_pkg = inputs.auxera-pkgs.packages.${system}.opencode;
 in {
   imports = [
     ./plugins
@@ -89,7 +91,7 @@ in {
   config = lib.mkIf cfg.enable {
     programs.opencode = {
       enable = true;
-      package = pkgs.opencode;
+      package = opencode_pkg;
       settings =
         lib.recursiveUpdate (import ./settings.nix {}) cfg.extraSettings;
     };
