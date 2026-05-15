@@ -10,8 +10,12 @@ in {
       enable = true;
       enableCompletion = true;
       autosuggestion.enable = true;
-      autosuggestion.highlight = null;
+      autosuggestion.highlight = "fg=240";
       syntaxHighlighting.enable = false;
+
+      sessionVariables = {
+        ZSH_AUTOSUGGEST_MANUAL_REBIND = "1";
+      };
 
       history = {
         ignoreDups = true;
