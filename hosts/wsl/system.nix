@@ -13,6 +13,7 @@
     services = {
       onepasswordAgent.enable = true;
       tailscale.enable = true;
+      openssh.enable = true;
     };
   };
 
