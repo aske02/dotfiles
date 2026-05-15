@@ -30,6 +30,7 @@
       tailscale.enable = true;
       librewolf.enable = true;
       opencode.enable = true;
+      spicetify.enable = true;
     };
 
     shell.enable = true;
