@@ -92,6 +92,7 @@ in {
         onefetch
         killall
         alejandra
+        devenv
       ];
 
       dot.shell.aliases = defaultAliases;

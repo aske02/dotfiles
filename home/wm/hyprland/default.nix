@@ -23,6 +23,7 @@ in {
       wayland.windowManager.hyprland.enable = true;
       wayland.windowManager.hyprland.sourceFirst = true;
       wayland.windowManager.hyprland.portalPackage = pkgs.xdg-desktop-portal-hyprland;
+      wayland.windowManager.hyprland.configType = "hyprlang";
 
       wayland.windowManager.hyprland.settings = {
         "$terminal" = config.var.terminal;
