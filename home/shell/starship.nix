@@ -13,6 +13,20 @@ in {
       settings = {
         aws = {symbol = "  ";};
         buf = {symbol = " ";};
+        custom.devenv = {
+          description = "Indicate an active devenv environment";
+          symbol = "🛠 ";
+          when = ''test -n "''${DEVENV_ROOT:-}"'';
+          format = "[$symbol devenv]($style) ";
+          style = "bold blue";
+        };
+        custom.nix-shell = {
+          description = "Indicate a genuine nix-shell (not devenv)";
+          symbol = " ";
+          when = ''test -n "''${IN_NIX_SHELL:-}" && test -z "''${DEVENV_ROOT:-}"'';
+          format = "[$symbol nix-shell]($style) ";
+          style = "bold blue";
+        };
         c = {symbol = " ";};
         conda = {symbol = " ";};
         crystal = {symbol = " ";};
@@ -37,7 +51,10 @@ in {
         memory_usage = {symbol = "󰍛 ";};
         meson = {symbol = "󰔷 ";};
         nim = {symbol = "󰆥 ";};
-        nix_shell = {symbol = " ";};
+        nix_shell = {
+          symbol = " ";
+          disabled = true;
+        };
         nodejs = {symbol = " ";};
         ocaml = {symbol = " ";};
         os = {

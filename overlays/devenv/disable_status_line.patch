@@ -1,0 +1,20 @@
+--- a/devenv/src/main.rs
++++ b/devenv/src/main.rs
+@@ -1167,8 +1167,6 @@
+     // during the first build by DevenvShellBuilder
+     let reload_config = ReloadConfig::new(vec![]);
+ 
+-    // Disable status line for non-interactive commands to avoid escape codes in output
+-    let is_interactive = cmd.is_none();
+ 
+     // Create the shell builder with pre-computed environment
+     let handle = tokio::runtime::Handle::current();
+@@ -1209,7 +1207,7 @@
+     });
+ 
+     // Run shell session on current thread (owns terminal)
+-    let shell_session = ShellSession::with_defaults().with_status_line(is_interactive);
++    let shell_session = ShellSession::with_defaults().with_status_line(false);
+     let exit_code = shell_session
+         .run(command_rx, event_tx, handoff, SessionIo::default())
+         .await

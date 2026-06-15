@@ -1,0 +1,3 @@
+[
+  (import ./devenv/devenv.nix)
+]

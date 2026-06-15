@@ -1,0 +1,38 @@
+diff --git a/devenv-shell/src/dialect/bash.rs b/devenv-shell/src/dialect/bash.rs
+index 0a590247..56b90486 100644
+--- a/devenv-shell/src/dialect/bash.rs
++++ b/devenv-shell/src/dialect/bash.rs
+@@ -257,7 +257,7 @@ fi
+     }
+ 
+     fn prompt_prefix(&self) -> &str {
+-        r#"PS1="(devenv) ${PS1:-}"#
++        r#"PS1="${PS1:-}"#
+     }
+ 
+     fn format_task_exports(&self, exports: &BTreeMap<String, String>) -> String {
+diff --git a/devenv-shell/src/dialect/zsh.rs b/devenv-shell/src/dialect/zsh.rs
+index 0e1e4aea..5de2b095 100644
+--- a/devenv-shell/src/dialect/zsh.rs
++++ b/devenv-shell/src/dialect/zsh.rs
+@@ -139,7 +139,7 @@ bindkey "${{DEVENV_RELOAD_KEYBIND:-\\e\\C-r}}" __devenv_reload_widget
+     }
+ 
+     fn prompt_prefix(&self) -> &str {
+-        r#"PROMPT="(devenv) ${PROMPT}""#
++        r#"PROMPT="${PROMPT}""#
+     }
+ 
+     fn format_task_exports(&self, exports: &BTreeMap<String, String>) -> String {
+diff --git a/src/modules/top-level.nix b/src/modules/top-level.nix
+index 84c05252..2686a8ca 100644
+--- a/src/modules/top-level.nix
++++ b/src/modules/top-level.nix
+@@ -318,7 +318,7 @@ in
+     enterShell = lib.mkBefore ''
+       ${lib.optionalString (config.devenv.cli.version == null || !lib.versionAtLeast config.devenv.cli.version "2.1") ''
+-        export PS1="\[\e[0;34m\](devenv)\[\e[0m\] ''${PS1-}"
++        export PS1="''${PS1-}"
+       ''}
+ 
+       # Override temp directories that stdenv set to NIX_BUILD_TOP.

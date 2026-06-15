@@ -3,6 +3,7 @@
   auxera-pkgs,
   ...
 }: let
+  localOverlays = import ../overlays;
 in {
   pkgsFor = system:
     import nixpkgs {
@@ -11,7 +12,7 @@ in {
         allowUnfree = true;
         allowUnfreePredicate = _: true;
       };
-      overlays = [auxera-pkgs.overlays.default];
+      overlays = localOverlays ++ [auxera-pkgs.overlays.default];
     };
 
   mkNix = {

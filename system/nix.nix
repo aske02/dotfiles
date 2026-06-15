@@ -21,9 +21,9 @@ in {
       ];
     };
 
-    nixpkgs.overlays = [
-      inputs.auxera-pkgs.overlays.default
-    ];
+    nixpkgs.overlays =
+      (import ../overlays)
+      ++ [inputs.auxera-pkgs.overlays.default];
 
     nix = {
       extraOptions = ''
