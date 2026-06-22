@@ -151,7 +151,6 @@ in {
         };
 
         misc = {
-          vfr = true;
           vrr = 1;
 
           disable_hyprland_logo = true;
