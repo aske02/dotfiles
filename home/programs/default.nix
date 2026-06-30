@@ -10,6 +10,7 @@
     ./librewolf.nix
     ./opencode
     ./spicetify.nix
+    ./ssh.nix
     ./tailscale.nix
     ./teams.nix
     ./vscode.nix

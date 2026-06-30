@@ -1,7 +1,10 @@
-{...}: {
+{pkgs, ...}: {
   imports = [
     ../../system/wsl.nix
   ];
+
+  environment.systemPackages = [pkgs.ghostty.terminfo];
+  environment.pathsToLink = ["/share/terminfo"];
 
   dot.system = {
     features = {
