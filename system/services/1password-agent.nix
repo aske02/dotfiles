@@ -31,6 +31,14 @@ in {
       };
     };
 
-    environment.variables.SSH_AUTH_SOCK = "/run/1password-agent.sock";
+    environment.shellInit = ''
+      if [ -z "$SSH_AUTH_SOCK" ] || [ ! -S "$SSH_AUTH_SOCK" ]; then
+        if [ -S /run/1password-agent.sock ]; then
+          export SSH_AUTH_SOCK=/run/1password-agent.sock
+        fi
+      fi
+    '';
+
+    systemd.user.settings.Manager.DefaultEnvironment = ["SSH_AUTH_SOCK=/run/1password-agent.sock"];
   };
 }
