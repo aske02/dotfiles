@@ -2,9 +2,11 @@
   config,
   lib,
   pkgs,
+  osConfig,
   ...
 }: let
   cfg = config.dot.shell.tmux;
+  isWsl = osConfig.wsl.enable or false;
 in {
   config = lib.mkIf (cfg.enable) {
     programs.tmux = {
@@ -13,7 +15,10 @@ in {
       clock24 = true;
       mouse = true;
       secureSocket = true;
-      escapeTime = 0;
+      escapeTime =
+        if isWsl
+        then 100
+        else 0;
       historyLimit = 100000;
       prefix = "C-Space";
 
