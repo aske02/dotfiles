@@ -16,6 +16,7 @@
     opencode = {
       enable = true;
       addons = {
+        plannotator.enable = false;
         notifier.sound = true;
         notifier.notification = false;
       };

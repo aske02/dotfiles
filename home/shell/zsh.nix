@@ -23,10 +23,6 @@ in {
         size = 10000;
       };
 
-      initContent = ''
-        eval "$(devenv hook zsh)"
-      '';
-
       oh-my-zsh = {
         enable = true;
         plugins = ["git" "direnv" "fzf" "docker" "eza" "zoxide"];
