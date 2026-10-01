@@ -15,6 +15,11 @@ in {
       push.autoSetupRemote = true;
       gpg.format = "ssh";
       commit.gpgSign = true;
+
+      init.defaultBranch = "master";
+      pull.rebase = true;
+      diff.colorMoved = true;
+      core.editor = config.var.editor;
     };
 
     signing = {
