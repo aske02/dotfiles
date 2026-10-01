@@ -1,9 +1,13 @@
-{inputs, ...}: {
+{
+  inputs,
+  config,
+  ...
+}: {
   nixpkgs.config = {
     allowUnfree = true;
     allowBroken = true;
     permittedInsecurePackages = [
-      "beekeeper-studio-5.5.7"
+      "beekeeper-studio-6.1.1"
     ];
   };
 
@@ -20,7 +24,7 @@
       auto-optimise-store = true;
       experimental-features = ["nix-command" "flakes"];
       substituters = ["https://cache.nixos.org" "https://auxera.cachix.org"];
-      trusted-users = ["root" "@wheel"];
+      trusted-users = ["root" config.var.username];
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrA3kbhn2flpey849RP97Bh4="
         "auxera.cachix.org-1:47t8ocmmQE2OyAEipk98QQsAqG9GFz+5yQ4Ey1AjIHM="

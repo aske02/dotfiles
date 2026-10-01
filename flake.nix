@@ -64,10 +64,6 @@
           packages = with pkgs; [
             alejandra
           ];
-          shellHook = ''
-            cp -r .githooks/* .git/hooks
-            chmod +x .git/hooks/*
-          '';
         };
       }
     );

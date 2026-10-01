@@ -25,5 +25,8 @@
 
   programs.home-manager.enable = true;
 
-  dot.programs.ghostty.forceSoftwareRendering = true;
+  dot = {
+    programs.ghostty.forceSoftwareRendering = true;
+    shell.devenv.enable = false;
+  };
 }

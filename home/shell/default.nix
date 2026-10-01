@@ -36,23 +36,13 @@ in {
       description = "Preferred interactive shell.";
     };
 
-    bash.enable = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Enable bash configuration.";
-    };
+    bash.enable = lib.mkEnableOption "Enable bash configuration" // { default = true; };
 
-    zsh.enable = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Enable zsh configuration.";
-    };
+    zsh.enable = lib.mkEnableOption "Enable zsh configuration" // { default = true; };
 
-    starship.enable = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Enable starship prompt.";
-    };
+    starship.enable = lib.mkEnableOption "starship prompt" // { default = true; };
+
+    devenv.enable = lib.mkEnableOption "Enable devenv" // { default = true; };
 
     aliases = lib.mkOption {
       type = lib.types.attrsOf lib.types.str;
@@ -89,8 +79,11 @@ in {
         onefetch
         killall
         alejandra
-        devenv
-      ];
+      ] ++ (
+        if config.dot.shell.devenv.enable
+        then [pkgs.devenv]
+        else []
+      );
 
       dot.shell.aliases = defaultAliases;
 

@@ -1,20 +1,25 @@
+diff --git a/devenv/src/main.rs b/devenv/src/main.rs
 --- a/devenv/src/main.rs
 +++ b/devenv/src/main.rs
-@@ -1167,8 +1167,6 @@
-     // during the first build by DevenvShellBuilder
-     let reload_config = ReloadConfig::new(vec![]);
- 
--    // Disable status line for non-interactive commands to avoid escape codes in output
--    let is_interactive = cmd.is_none();
- 
-     // Create the shell builder with pre-computed environment
-     let handle = tokio::runtime::Handle::current();
-@@ -1209,7 +1207,7 @@
-     });
- 
-     // Run shell session on current thread (owns terminal)
--    let shell_session = ShellSession::with_defaults().with_status_line(is_interactive);
-+    let shell_session = ShellSession::with_defaults().with_status_line(false);
-     let exit_code = shell_session
-         .run(command_rx, event_tx, handoff, SessionIo::default())
-         .await
+@@ -940,7 +940,7 @@
+     status_line_enabled: bool,
+ ) -> Option<bool> {
+     match command {
+-        Commands::Shell { cmd, .. } if use_pty => Some(cmd.is_none() && status_line_enabled),
++        Commands::Shell { .. } if use_pty => Some(false),
+         _ => None,
+     }
+ }
+diff --git a/devenv/src/main.rs b/devenv/src/main.rs
+--- a/devenv/src/main.rs
++++ b/devenv/src/main.rs
+@@ -1948,7 +1948,7 @@
+         let shell = Commands::Shell {
+             cmd: None,
+             args: Vec::new(),
+         };
+-        assert_eq!(shell_session_status_line(&shell, true, true), Some(true));
++        assert_eq!(shell_session_status_line(&shell, true, true), Some(false));
+         assert_eq!(shell_session_status_line(&shell, true, false), Some(false));
+         assert_eq!(shell_session_status_line(&shell, false, false), None);
+     }
