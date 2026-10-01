@@ -56,5 +56,17 @@
           sops-nix.nixosModules.sops
         ];
       };
+
+    think =
+      base
+      // {
+        target = "x86_64-linux";
+        config = "think";
+        hostname = "think";
+        extraModules = [
+          home-manager.nixosModules.home-manager
+          sops-nix.nixosModules.sops
+        ];
+      };
   };
 }
