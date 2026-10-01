@@ -96,7 +96,6 @@ in {
 
       programs.bash.shellAliases = lib.mkIf cfg.bash.enable cfg.aliases;
       programs.zsh.shellAliases = lib.mkIf cfg.zsh.enable cfg.aliases;
-      programs.fish.shellAliases = cfg.aliases;
 
       programs.direnv = {
         enable = true;
