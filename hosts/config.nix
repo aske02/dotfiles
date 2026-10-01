@@ -21,7 +21,7 @@
 
     terminal = "ghostty";
     browser = "librewolf";
-    editor = "code";
+    editor = "zed";
   };
 
   options = {
