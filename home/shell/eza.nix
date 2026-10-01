@@ -4,6 +4,7 @@ in {
   programs.eza = {
     enable = true;
     enableZshIntegration = cfg.zsh.enable;
+    enableBashIntegration = cfg.bash.enable;
     icons = "auto";
 
     extraOptions = [
