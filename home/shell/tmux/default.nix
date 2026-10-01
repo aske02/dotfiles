@@ -1,11 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: let
-  cfg = config.dot.shell.tmux;
-in {
+{lib, ...}: {
   imports = [
     ./tmux.nix
     ./sessionizer.nix

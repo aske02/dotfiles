@@ -1,16 +1,6 @@
-{
-  config,
-  lib,
-  ...
-}: let
-  cfg = config.dot.system.features.docker;
+{config, ...}: let
   username = config.var.username;
 in {
-  options.dot.system.features.docker.enable =
-    lib.mkEnableOption "Docker";
-
-  config = lib.mkIf cfg.enable {
-    virtualisation.docker.enable = true;
-    users.users.${username}.extraGroups = ["docker"];
-  };
+  virtualisation.docker.enable = true;
+  users.users.${username}.extraGroups = ["docker"];
 }

@@ -27,8 +27,6 @@ in {
             [
               ../hosts/config.nix
 
-              ../system
-
               ../hosts/${name}/system.nix
 
               ({config, ...}: {

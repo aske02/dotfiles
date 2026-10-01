@@ -1,5 +1,20 @@
 {config, ...}: {
-  imports = [];
+  imports = [
+    ../../home/shell
+
+    ../../home/programs/zed
+    ../../home/programs/1password.nix
+    ../../home/programs/discord.nix
+    ../../home/programs/ghostty.nix
+    ../../home/programs/git.nix
+    ../../home/programs/librewolf.nix
+    ../../home/programs/ssh.nix
+    ../../home/programs/tailscale.nix
+
+    ../../home/scripts/nixx.nix
+
+    ../../home/wm/hyprland
+  ];
 
   home = {
     inherit (config.var) username;
@@ -10,29 +25,5 @@
 
   programs.home-manager.enable = true;
 
-  dot = {
-    programs = {
-      git.enable = true;
-      lazygit.enable = true;
-      onepassword.enable = true;
-      zed.enable = true;
-      vscode.enable = false;
-      discord.enable = true;
-      teams.enable = false;
-      featherpad.enable = false;
-      beekeeper.enable = true;
-      tailscale.enable = true;
-      librewolf.enable = true;
-      opencode.enable = true;
-      spicetify.enable = true;
-      ghostty = {
-        enable = true;
-        forceSoftwareRendering = true;
-      };
-    };
-
-    shell.enable = true;
-
-    wm.hyprland.enable = true;
-  };
+  dot.programs.ghostty.forceSoftwareRendering = true;
 }

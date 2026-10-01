@@ -1,10 +1,6 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  config = lib.mkIf config.programs.ssh.enable {
-    programs.ssh.extraConfig = ''
+{...}: {
+  programs.ssh = {
+    extraConfig = ''
       Host wsl wsl-school
 
       Host *

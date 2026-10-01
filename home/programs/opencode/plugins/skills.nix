@@ -54,7 +54,7 @@
       })
     selectedSkills);
 in {
-  config = lib.mkIf (cfg.enable && skillsCfg.enable) {
+  config = lib.mkIf skillsCfg.enable {
     assertions = [
       {
         assertion = duplicateSkillNames == [];

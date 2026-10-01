@@ -5,7 +5,7 @@
 }: let
   cfg = config.dot.shell;
 in {
-  config = lib.mkIf (cfg.enable && cfg.zsh.enable) {
+  config = lib.mkIf cfg.zsh.enable {
     programs.zsh = {
       enable = true;
       enableCompletion = true;

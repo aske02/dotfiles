@@ -6,7 +6,7 @@
   cfg = config.dot.programs.opencode;
   notifierCfg = cfg.addons.notifier;
 in {
-  config = lib.mkIf (cfg.enable && notifierCfg.enable) {
+  config = lib.mkIf notifierCfg.enable {
     programs.opencode-notifier-plugin = {
       enable = true;
       settings = {

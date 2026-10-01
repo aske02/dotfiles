@@ -1,10 +1,22 @@
-{
-  config,
-  host,
-  pkgs,
-  ...
-}: {
-  imports = [];
+{config, ...}: {
+  imports = [
+    ../../home/shell
+
+    ../../home/programs/opencode
+    ../../home/programs/zed
+    ../../home/programs/1password.nix
+    ../../home/programs/discord.nix
+    ../../home/programs/ghostty.nix
+    ../../home/programs/git.nix
+    ../../home/programs/lazygit.nix
+    ../../home/programs/librewolf.nix
+    ../../home/programs/ssh.nix
+    ../../home/programs/tailscale.nix
+
+    ../../home/scripts/nixx.nix
+
+    ../../home/wm/hyprland
+  ];
 
   home = {
     inherit (config.var) username;
@@ -15,21 +27,13 @@
 
   programs.home-manager.enable = true;
 
-  dot = {
-    programs = {
-      git.enable = true;
-      lazygit.enable = true;
-      onepassword.enable = true;
-      ghostty.enable = true;
-      zed.enable = true;
-      vscode.enable = true;
-      spicetify.enable = true;
-      tailscale.enable = true;
-      librewolf.enable = true;
+  dot.programs = {
+    opencode = {
+      addons = {
+        plannotator.enable = false;
+        notifier.sound = false;
+        notifier.notification = true;
+      };
     };
-
-    shell.enable = true;
-
-    wm.hyprland.enable = true;
   };
 }

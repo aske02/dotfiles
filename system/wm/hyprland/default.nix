@@ -7,8 +7,6 @@
   cfg = config.dot.system.wm.hyprland;
 in {
   options.dot.system.wm.hyprland = {
-    enable = lib.mkEnableOption "Hyprland";
-
     nvidiaPrime = {
       enable = lib.mkEnableOption "NVIDIA PRIME sync setup";
 
@@ -32,7 +30,7 @@ in {
     ./overlay.nix
   ];
 
-  config = lib.mkIf cfg.enable {
+  config = {
     services.greetd.enable = true;
     services.greetd.settings = {
       default_session = {

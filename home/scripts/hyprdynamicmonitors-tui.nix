@@ -1,11 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: let
-  cfg = config.dot.scripts.hyprdynamicmonitorsTui;
-
+{pkgs, ...}: let
   hdmTui = pkgs.writeShellScriptBin "hdm-tui" ''
     set -euo pipefail
 
@@ -58,16 +51,8 @@
     printf 'Reset ad-hoc config at %s\n' "$state_dir"
   '';
 in {
-  options.dot.scripts.hyprdynamicmonitorsTui.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = true;
-    description = "Enable writable HyprDynamicMonitors TUI helper scripts.";
-  };
-
-  config = lib.mkIf cfg.enable {
-    home.packages = [
-      hdmTui
-      hdmTuiReset
-    ];
-  };
+  home.packages = [
+    hdmTui
+    hdmTuiReset
+  ];
 }

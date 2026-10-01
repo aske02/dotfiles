@@ -1,10 +1,8 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }: let
-  cfg = config.dot.scripts.nixx;
   dotfiles = config.var.dotfiles;
 
   nixx =
@@ -29,13 +27,5 @@
       fi
     '';
 in {
-  options.dot.scripts.nixx.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = true;
-    description = "Enable the nixx helper script.";
-  };
-
-  config = lib.mkIf cfg.enable {
-    home.packages = [nixx];
-  };
+  home.packages = [nixx];
 }

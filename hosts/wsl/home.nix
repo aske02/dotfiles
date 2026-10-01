@@ -1,5 +1,16 @@
 {config, ...}: {
-  imports = [];
+  imports = [
+    ../../home/shell
+
+    ../../home/programs/opencode
+    ../../home/programs/zed
+    ../../home/programs/git.nix
+    ../../home/programs/lazygit.nix
+    ../../home/programs/ssh.nix
+    ../../home/programs/tailscale.nix
+
+    ../../home/scripts/nixx.nix
+  ];
 
   home = {
     inherit (config.var) username;
@@ -11,10 +22,7 @@
   programs.home-manager.enable = true;
 
   dot.programs = {
-    git.enable = true;
-    lazygit.enable = true;
     opencode = {
-      enable = true;
       addons = {
         plannotator.enable = false;
         notifier.sound = true;
@@ -22,6 +30,4 @@
       };
     };
   };
-
-  dot.shell.enable = true;
 }

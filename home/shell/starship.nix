@@ -5,7 +5,7 @@
 }: let
   cfg = config.dot.shell;
 in {
-  config = lib.mkIf (cfg.enable && cfg.starship.enable) {
+  config = lib.mkIf cfg.starship.enable {
     programs.starship = {
       enable = true;
       enableZshIntegration = cfg.zsh.enable;

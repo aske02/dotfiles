@@ -16,7 +16,6 @@
   };
 in {
   options.dot.programs.ghostty = {
-    enable = lib.mkEnableOption "Ghostty";
     forceSoftwareRendering =
       lib.mkEnableOption "force software (llvmpipe) OpenGL rendering"
       // {
@@ -24,7 +23,7 @@ in {
       };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = {
     programs.ghostty = {
       enable = true;
       enableZshIntegration = true;

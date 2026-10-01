@@ -5,10 +5,12 @@
   pkgs,
   ...
 }: let
-  cfg = config.dot.wm.hyprland;
+  cfg = config.dot.wm.hyprland.hyprmonitors;
   tomlFormat = pkgs.formats.toml {};
   system = pkgs.stdenv.hostPlatform.system;
 in {
+  options.dot.wm.hyprland.hyprmonitors.enable = lib.mkEnableOption "Hyprdynamicmonitors";
+
   imports = [inputs.hyprdynamicmonitors.homeManagerModules.default];
 
   config = lib.mkIf cfg.enable {

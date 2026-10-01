@@ -30,8 +30,6 @@ in {
   ];
 
   options.dot.shell = {
-    enable = lib.mkEnableOption "Shell tooling";
-
     preferred = lib.mkOption {
       type = lib.types.enum ["zsh" "bash"];
       default = "zsh";
@@ -71,10 +69,10 @@ in {
 
   config = lib.mkMerge [
     {
-      assertions = lib.optionals cfg.enable [
+      assertions = [
         {
           assertion = cfg.bash.enable || cfg.zsh.enable;
-          message = "dot.shell.enable is true, but both dot.shell.bash.enable and dot.shell.zsh.enable are false.";
+          message = "dot.shell is imported, but both dot.shell.bash.enable and dot.shell.zsh.enable are false.";
         }
         {
           assertion = (cfg.preferred != "bash") || cfg.bash.enable;
@@ -86,8 +84,7 @@ in {
         }
       ];
     }
-
-    (lib.mkIf cfg.enable {
+    {
       home.packages = with pkgs; [
         onefetch
         killall
@@ -127,6 +124,6 @@ in {
         enableZshIntegration = cfg.zsh.enable;
         enableBashIntegration = cfg.bash.enable;
       };
-    })
+    }
   ];
 }

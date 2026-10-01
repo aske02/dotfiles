@@ -14,8 +14,6 @@ in {
   ];
 
   options.dot.programs.opencode = {
-    enable = lib.mkEnableOption "OpenCode";
-
     extraSettings = lib.mkOption {
       type = lib.types.attrs;
       default = {};
@@ -88,7 +86,7 @@ in {
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = {
     programs.opencode = {
       enable = true;
       package = opencode_pkg;

@@ -1,10 +1,26 @@
-{
-  config,
-  host,
-  pkgs,
-  ...
-}: {
-  imports = [];
+{config, ...}: {
+  imports = [
+    ../../home/shell
+
+    ../../home/programs/opencode
+    ../../home/programs/zed
+    ../../home/programs/1password.nix
+    ../../home/programs/beekeeper.nix
+    ../../home/programs/discord.nix
+    ../../home/programs/featherpad.nix
+    ../../home/programs/ghostty.nix
+    ../../home/programs/git.nix
+    ../../home/programs/lazygit.nix
+    ../../home/programs/librewolf.nix
+    ../../home/programs/ssh.nix
+    ../../home/programs/tailscale.nix
+    ../../home/programs/teams.nix
+
+    ../../home/scripts/nixx.nix
+    ../../home/scripts/hyprdynamicmonitors-tui.nix
+
+    ../../home/wm/hyprland
+  ];
 
   home = {
     inherit (config.var) username;
@@ -15,26 +31,15 @@
 
   programs.home-manager.enable = true;
 
-  dot = {
-    programs = {
-      git.enable = true;
-      lazygit.enable = true;
-      onepassword.enable = true;
-      ghostty.enable = true;
-      zed.enable = true;
-      vscode.enable = true;
-      discord.enable = true;
-      teams.enable = true;
-      featherpad.enable = true;
-      beekeeper.enable = true;
-      tailscale.enable = true;
-      librewolf.enable = true;
-      opencode.enable = true;
-      spicetify.enable = true;
+  dot.wm.hyprland.hyprmonitors.enable = true;
+
+  dot.programs = {
+    opencode = {
+      addons = {
+        plannotator.enable = false;
+        notifier.sound = false;
+        notifier.notification = true;
+      };
     };
-
-    shell.enable = true;
-
-    wm.hyprland.enable = true;
   };
 }
