@@ -1,6 +1,5 @@
 {
   home-manager,
-  sops-nix,
   nixos-wsl,
   ...
 }: rec {
@@ -18,7 +17,6 @@
         config = "wsl";
         hostname = "wsl";
         extraModules = [
-          sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
           nixos-wsl.nixosModules.wsl
         ];
@@ -41,7 +39,6 @@
         hostname = "school";
         extraModules = [
           home-manager.nixosModules.home-manager
-          sops-nix.nixosModules.sops
         ];
       };
 
@@ -53,7 +50,6 @@
         hostname = "msi";
         extraModules = [
           home-manager.nixosModules.home-manager
-          sops-nix.nixosModules.sops
         ];
       };
 
@@ -65,7 +61,6 @@
         hostname = "think";
         extraModules = [
           home-manager.nixosModules.home-manager
-          sops-nix.nixosModules.sops
         ];
       };
   };

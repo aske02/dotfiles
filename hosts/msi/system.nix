@@ -7,7 +7,6 @@
     ../../system/docker.nix
     ../../system/home-manager.nix
     ../../system/nix.nix
-    ../../system/sops.nix
     ../../system/user.nix
     ../../system/util.nix
 

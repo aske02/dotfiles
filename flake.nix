@@ -4,11 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -68,7 +63,6 @@
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
             alejandra
-            sops
           ];
           shellHook = ''
             cp -r .githooks/* .git/hooks
