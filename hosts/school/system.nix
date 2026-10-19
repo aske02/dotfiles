@@ -10,6 +10,7 @@
     ../../system/user.nix
     ../../system/util.nix
     ../../system/bluetooth.nix
+    ../../system/qmk.nix
 
     ../../system/wm/hyprland
 
