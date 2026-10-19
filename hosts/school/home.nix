@@ -15,6 +15,7 @@
     ../../home/programs/ssh.nix
     ../../home/programs/tailscale.nix
     ../../home/programs/teams.nix
+    ../../home/programs/overskride.nix
 
     ../../home/scripts/nixx.nix
     ../../home/scripts/hyprdynamicmonitors-tui.nix
