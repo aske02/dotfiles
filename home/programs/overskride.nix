@@ -1,3 +1,3 @@
 {pkgs, ...}: {
-	home.packages = [pkgs.overskride];
+  home.packages = [pkgs.overskride];
 }

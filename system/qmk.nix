@@ -12,5 +12,5 @@ in {
     qmk-udev-rules
   ];
 
-  users.users.${username}.extraGroups = [ "input" "plugdev" ];
+  users.users.${username}.extraGroups = ["input" "plugdev"];
 }
