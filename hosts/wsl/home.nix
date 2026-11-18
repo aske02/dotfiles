@@ -3,6 +3,7 @@
     ../../home/shell
 
     ../../home/programs/opencode
+    ../../home/programs/t3code.nix
     ../../home/programs/git.nix
     ../../home/programs/lazygit.nix
     ../../home/programs/ssh.nix

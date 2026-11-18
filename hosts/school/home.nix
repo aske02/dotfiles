@@ -3,6 +3,7 @@
     ../../home/shell
 
     ../../home/programs/opencode
+    ../../home/programs/t3code.nix
     ../../home/programs/zed
     ../../home/programs/1password.nix
     ../../home/programs/beekeeper.nix

@@ -2,6 +2,7 @@
   imports = [
     ../../home/shell
 
+    ../../home/programs/t3code.nix
     ../../home/programs/zed
     ../../home/programs/1password.nix
     ../../home/programs/discord.nix
