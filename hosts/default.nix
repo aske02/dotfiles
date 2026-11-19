@@ -16,7 +16,6 @@
         target = "x86_64-linux";
         config = "wsl";
         hostname = "wsl";
-        buildPriority = 1;
         extraModules = [
           home-manager.nixosModules.home-manager
           nixos-wsl.nixosModules.wsl
@@ -29,7 +28,6 @@
         target = wsl.target;
         config = "wsl-school";
         hostname = "wsl-school";
-        buildPriority = 4;
         extraModules = wsl.extraModules;
       };
 
@@ -39,7 +37,6 @@
         target = "x86_64-linux";
         config = "school";
         hostname = "school";
-        buildPriority = 3;
         extraModules = [
           home-manager.nixosModules.home-manager
         ];
@@ -51,7 +48,6 @@
         target = "x86_64-linux";
         config = "msi";
         hostname = "msi";
-        buildPriority = 2;
         extraModules = [
           home-manager.nixosModules.home-manager
         ];
@@ -63,7 +59,6 @@
         target = "x86_64-linux";
         config = "think";
         hostname = "think";
-        buildPriority = 0;
         extraModules = [
           home-manager.nixosModules.home-manager
         ];
